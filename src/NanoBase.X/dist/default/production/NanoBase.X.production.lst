@@ -1,970 +1,594 @@
 
 
-Microchip MPLAB XC8 Assembler V2.30 build 20200825195618 
-                                                                                               Thu Nov 19 09:05:03 2020
+Microchip MPLAB XC8 Assembler V2.31 build 20201012212115 
+                                                                                               Thu Apr 22 15:04:26 2021
 
-Microchip MPLAB XC8 C Compiler v2.30 (Free license) build 20200825195618 Og1 
+Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1 
      1                           	processor	16F15244
      2                           	pagewidth 120
      3                           	opt	flic
      4                           	psect	idataCOMMON,global,class=CODE,delta=2,noexec
-     5                           	psect	idataBANK0,global,class=CODE,delta=2,noexec
-     6                           	psect	cinit,global,class=CODE,merge=1,delta=2
-     7                           	psect	bssCOMMON,global,class=COMMON,space=1,delta=1,noexec
-     8                           	psect	dataCOMMON,global,class=COMMON,space=1,delta=1,noexec
-     9                           	psect	dataBANK0,global,class=BANK0,space=1,delta=1,noexec
-    10                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
-    11                           	psect	maintext,global,class=CODE,merge=1,split=1,delta=2
-    12                           	psect	text1,local,class=CODE,merge=1,delta=2
-    13                           	psect	text2,local,class=CODE,merge=1,delta=2
-    14                           	psect	text3,local,class=CODE,merge=1,delta=2
-    15                           	psect	text4,local,class=CODE,merge=1,delta=2
-    16                           	psect	text5,local,class=CODE,merge=1,delta=2
-    17                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
-    18                           	dabs	1,0x7E,2
-    19  0000                     
-    20                           ; Version 2.20
-    21                           ; Generated 30/04/2020 GMT
-    22                           ; 
-    23                           ; Copyright © 2020, Microchip Technology Inc. and its subsidiaries ("Microchip")
-    24                           ; All rights reserved.
-    25                           ; 
-    26                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+     5                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     6                           	psect	bssCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     7                           	psect	dataCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     8                           	psect	inittext,global,class=CODE,delta=2
+     9                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+    10                           	psect	maintext,global,class=CODE,merge=1,split=1,delta=2
+    11                           	psect	text1,local,class=CODE,merge=1,delta=2
+    12                           	psect	text2,local,class=CODE,merge=1,delta=2
+    13                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    14                           	dabs	1,0x7E,2
+    15  0000                     
+    16                           ; Version 2.20
+    17                           ; Generated 30/04/2020 GMT
+    18                           ; 
+    19                           ; Copyright © 2020, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    20                           ; All rights reserved.
+    21                           ; 
+    22                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
       +                          ip").
-    27                           ; 
-    28                           ; Redistribution and use in source and binary forms, with or without modification, are
-    29                           ; permitted provided that the following conditions are met:
-    30                           ; 
-    31                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+    23                           ; 
+    24                           ; Redistribution and use in source and binary forms, with or without modification, are
+    25                           ; permitted provided that the following conditions are met:
+    26                           ; 
+    27                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
       +                          t of
-    32                           ;        conditions and the following disclaimer.
-    33                           ; 
-    34                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+    28                           ;        conditions and the following disclaimer.
+    29                           ; 
+    30                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
       +                          list
-    35                           ;        of conditions and the following disclaimer in the documentation and/or other
-    36                           ;        materials provided with the distribution.
-    37                           ; 
-    38                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+    31                           ;        of conditions and the following disclaimer in the documentation and/or other
+    32                           ;        materials provided with the distribution.
+    33                           ; 
+    34                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
       +                          is
-    39                           ;        software without specific prior written permission.
-    40                           ; 
-    41                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-    42                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+    35                           ;        software without specific prior written permission.
+    36                           ; 
+    37                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    38                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
       +                          OR
-    43                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+    39                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
       +                          T,
-    44                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
-    45                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
-    46                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+    40                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    41                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    42                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
       +                          RICT
-    47                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+    43                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
       +                          SE OF
-    48                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-    49                           ; 
-    50                           ; 
-    51                           ; Code-generator required, PIC16F15244 Definitions
-    52                           ; 
-    53                           ; SFR Addresses
-    54  0000                     	;# 
-    55  0001                     	;# 
-    56  0002                     	;# 
-    57  0003                     	;# 
-    58  0004                     	;# 
-    59  0005                     	;# 
-    60  0006                     	;# 
-    61  0007                     	;# 
-    62  0008                     	;# 
-    63  0009                     	;# 
-    64  000A                     	;# 
-    65  000B                     	;# 
-    66  000C                     	;# 
-    67  000D                     	;# 
-    68  000E                     	;# 
-    69  0012                     	;# 
-    70  0013                     	;# 
-    71  0014                     	;# 
-    72  0018                     	;# 
-    73  0019                     	;# 
-    74  001A                     	;# 
-    75  009A                     	;# 
-    76  009B                     	;# 
-    77  009B                     	;# 
-    78  009C                     	;# 
-    79  009D                     	;# 
-    80  009E                     	;# 
-    81  009F                     	;# 
-    82  010C                     	;# 
-    83  010D                     	;# 
-    84  0119                     	;# 
-    85  011A                     	;# 
-    86  011B                     	;# 
-    87  011B                     	;# 
-    88  011C                     	;# 
-    89  011D                     	;# 
-    90  011E                     	;# 
-    91  011F                     	;# 
-    92  018C                     	;# 
-    93  018D                     	;# 
-    94  018E                     	;# 
-    95  018F                     	;# 
-    96  0190                     	;# 
-    97  0191                     	;# 
-    98  0192                     	;# 
-    99  020C                     	;# 
-   100  020D                     	;# 
-   101  020E                     	;# 
-   102  020E                     	;# 
-   103  020F                     	;# 
-   104  020F                     	;# 
-   105  0210                     	;# 
-   106  0210                     	;# 
-   107  0211                     	;# 
-   108  0211                     	;# 
-   109  028C                     	;# 
-   110  028C                     	;# 
-   111  028D                     	;# 
-   112  028D                     	;# 
-   113  028E                     	;# 
-   114  028F                     	;# 
-   115  0290                     	;# 
-   116  0291                     	;# 
-   117  030C                     	;# 
-   118  030C                     	;# 
-   119  030D                     	;# 
-   120  030E                     	;# 
-   121  030F                     	;# 
-   122  0310                     	;# 
-   123  0310                     	;# 
-   124  0311                     	;# 
-   125  0312                     	;# 
-   126  0313                     	;# 
-   127  0314                     	;# 
-   128  0314                     	;# 
-   129  0315                     	;# 
-   130  0316                     	;# 
-   131  0318                     	;# 
-   132  0318                     	;# 
-   133  0319                     	;# 
-   134  031A                     	;# 
-   135  059C                     	;# 
-   136  059C                     	;# 
-   137  059D                     	;# 
-   138  059D                     	;# 
-   139  059E                     	;# 
-   140  059F                     	;# 
-   141  070C                     	;# 
-   142  070D                     	;# 
-   143  070E                     	;# 
-   144  0716                     	;# 
-   145  0717                     	;# 
-   146  0718                     	;# 
-   147  080C                     	;# 
-   148  0811                     	;# 
-   149  0813                     	;# 
-   150  0814                     	;# 
-   151  081A                     	;# 
-   152  081A                     	;# 
-   153  081B                     	;# 
-   154  081C                     	;# 
-   155  081C                     	;# 
-   156  081D                     	;# 
-   157  081E                     	;# 
-   158  081F                     	;# 
-   159  088E                     	;# 
-   160  0890                     	;# 
-   161  0891                     	;# 
-   162  0892                     	;# 
-   163  0893                     	;# 
-   164  090C                     	;# 
-   165  1E8F                     	;# 
-   166  1E90                     	;# 
-   167  1E91                     	;# 
-   168  1E92                     	;# 
-   169  1E93                     	;# 
-   170  1E9C                     	;# 
-   171  1EA1                     	;# 
-   172  1EA2                     	;# 
-   173  1EC3                     	;# 
-   174  1EC5                     	;# 
-   175  1EC6                     	;# 
-   176  1EC7                     	;# 
-   177  1ECB                     	;# 
-   178  1ECB                     	;# 
-   179  1ECB                     	;# 
-   180  1ECC                     	;# 
-   181  1ECC                     	;# 
-   182  1ECC                     	;# 
-   183  1F10                     	;# 
-   184  1F11                     	;# 
-   185  1F12                     	;# 
-   186  1F14                     	;# 
-   187  1F15                     	;# 
-   188  1F1C                     	;# 
-   189  1F1D                     	;# 
-   190  1F1E                     	;# 
-   191  1F1F                     	;# 
-   192  1F20                     	;# 
-   193  1F21                     	;# 
-   194  1F22                     	;# 
-   195  1F23                     	;# 
-   196  1F24                     	;# 
-   197  1F25                     	;# 
-   198  1F26                     	;# 
-   199  1F27                     	;# 
-   200  1F38                     	;# 
-   201  1F39                     	;# 
-   202  1F3A                     	;# 
-   203  1F3B                     	;# 
-   204  1F3C                     	;# 
-   205  1F3D                     	;# 
-   206  1F3E                     	;# 
-   207  1F3F                     	;# 
-   208  1F43                     	;# 
-   209  1F44                     	;# 
-   210  1F45                     	;# 
-   211  1F46                     	;# 
-   212  1F47                     	;# 
-   213  1F48                     	;# 
-   214  1F49                     	;# 
-   215  1F4A                     	;# 
-   216  1F4E                     	;# 
-   217  1F4F                     	;# 
-   218  1F50                     	;# 
-   219  1F51                     	;# 
-   220  1F52                     	;# 
-   221  1F53                     	;# 
-   222  1F54                     	;# 
-   223  1F55                     	;# 
-   224  1FE4                     	;# 
-   225  1FE5                     	;# 
-   226  1FE6                     	;# 
-   227  1FE7                     	;# 
-   228  1FE8                     	;# 
-   229  1FE8                     	;# 
-   230  1FE9                     	;# 
-   231  1FEA                     	;# 
-   232  1FEB                     	;# 
-   233  1FED                     	;# 
-   234  1FEE                     	;# 
-   235  1FEF                     	;# 
-   236                           
-   237                           	psect	idataCOMMON
-   238  0766                     __pidataCOMMON:
+    44                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    45                           ; 
+    46                           ; 
+    47                           ; Code-generator required, PIC16F15244 Definitions
+    48                           ; 
+    49                           ; SFR Addresses
+    50  0000                     	;# 
+    51  0001                     	;# 
+    52  0002                     	;# 
+    53  0003                     	;# 
+    54  0004                     	;# 
+    55  0005                     	;# 
+    56  0006                     	;# 
+    57  0007                     	;# 
+    58  0008                     	;# 
+    59  0009                     	;# 
+    60  000A                     	;# 
+    61  000B                     	;# 
+    62  000C                     	;# 
+    63  000D                     	;# 
+    64  000E                     	;# 
+    65  0012                     	;# 
+    66  0013                     	;# 
+    67  0014                     	;# 
+    68  0018                     	;# 
+    69  0019                     	;# 
+    70  001A                     	;# 
+    71  009A                     	;# 
+    72  009B                     	;# 
+    73  009B                     	;# 
+    74  009C                     	;# 
+    75  009D                     	;# 
+    76  009E                     	;# 
+    77  009F                     	;# 
+    78  010C                     	;# 
+    79  010D                     	;# 
+    80  0119                     	;# 
+    81  011A                     	;# 
+    82  011B                     	;# 
+    83  011B                     	;# 
+    84  011C                     	;# 
+    85  011D                     	;# 
+    86  011E                     	;# 
+    87  011F                     	;# 
+    88  018C                     	;# 
+    89  018D                     	;# 
+    90  018E                     	;# 
+    91  018F                     	;# 
+    92  0190                     	;# 
+    93  0191                     	;# 
+    94  0192                     	;# 
+    95  020C                     	;# 
+    96  020D                     	;# 
+    97  020E                     	;# 
+    98  020E                     	;# 
+    99  020F                     	;# 
+   100  020F                     	;# 
+   101  0210                     	;# 
+   102  0210                     	;# 
+   103  0211                     	;# 
+   104  0211                     	;# 
+   105  028C                     	;# 
+   106  028C                     	;# 
+   107  028D                     	;# 
+   108  028D                     	;# 
+   109  028E                     	;# 
+   110  028F                     	;# 
+   111  0290                     	;# 
+   112  0291                     	;# 
+   113  030C                     	;# 
+   114  030C                     	;# 
+   115  030D                     	;# 
+   116  030E                     	;# 
+   117  030F                     	;# 
+   118  0310                     	;# 
+   119  0310                     	;# 
+   120  0311                     	;# 
+   121  0312                     	;# 
+   122  0313                     	;# 
+   123  0314                     	;# 
+   124  0314                     	;# 
+   125  0315                     	;# 
+   126  0316                     	;# 
+   127  0318                     	;# 
+   128  0318                     	;# 
+   129  0319                     	;# 
+   130  031A                     	;# 
+   131  059C                     	;# 
+   132  059C                     	;# 
+   133  059D                     	;# 
+   134  059D                     	;# 
+   135  059E                     	;# 
+   136  059F                     	;# 
+   137  070C                     	;# 
+   138  070D                     	;# 
+   139  070E                     	;# 
+   140  0716                     	;# 
+   141  0717                     	;# 
+   142  0718                     	;# 
+   143  080C                     	;# 
+   144  0811                     	;# 
+   145  0813                     	;# 
+   146  0814                     	;# 
+   147  081A                     	;# 
+   148  081A                     	;# 
+   149  081B                     	;# 
+   150  081C                     	;# 
+   151  081C                     	;# 
+   152  081D                     	;# 
+   153  081E                     	;# 
+   154  081F                     	;# 
+   155  088E                     	;# 
+   156  0890                     	;# 
+   157  0891                     	;# 
+   158  0892                     	;# 
+   159  0893                     	;# 
+   160  090C                     	;# 
+   161  1E8F                     	;# 
+   162  1E90                     	;# 
+   163  1E91                     	;# 
+   164  1E92                     	;# 
+   165  1E93                     	;# 
+   166  1E9C                     	;# 
+   167  1EA1                     	;# 
+   168  1EA2                     	;# 
+   169  1EC3                     	;# 
+   170  1EC5                     	;# 
+   171  1EC6                     	;# 
+   172  1EC7                     	;# 
+   173  1ECB                     	;# 
+   174  1ECB                     	;# 
+   175  1ECB                     	;# 
+   176  1ECC                     	;# 
+   177  1ECC                     	;# 
+   178  1ECC                     	;# 
+   179  1F10                     	;# 
+   180  1F11                     	;# 
+   181  1F12                     	;# 
+   182  1F14                     	;# 
+   183  1F15                     	;# 
+   184  1F1C                     	;# 
+   185  1F1D                     	;# 
+   186  1F1E                     	;# 
+   187  1F1F                     	;# 
+   188  1F20                     	;# 
+   189  1F21                     	;# 
+   190  1F22                     	;# 
+   191  1F23                     	;# 
+   192  1F24                     	;# 
+   193  1F25                     	;# 
+   194  1F26                     	;# 
+   195  1F27                     	;# 
+   196  1F38                     	;# 
+   197  1F39                     	;# 
+   198  1F3A                     	;# 
+   199  1F3B                     	;# 
+   200  1F3C                     	;# 
+   201  1F3D                     	;# 
+   202  1F3E                     	;# 
+   203  1F3F                     	;# 
+   204  1F43                     	;# 
+   205  1F44                     	;# 
+   206  1F45                     	;# 
+   207  1F46                     	;# 
+   208  1F47                     	;# 
+   209  1F48                     	;# 
+   210  1F49                     	;# 
+   211  1F4A                     	;# 
+   212  1F4E                     	;# 
+   213  1F4F                     	;# 
+   214  1F50                     	;# 
+   215  1F51                     	;# 
+   216  1F52                     	;# 
+   217  1F53                     	;# 
+   218  1F54                     	;# 
+   219  1F55                     	;# 
+   220  1FE4                     	;# 
+   221  1FE5                     	;# 
+   222  1FE6                     	;# 
+   223  1FE7                     	;# 
+   224  1FE8                     	;# 
+   225  1FE8                     	;# 
+   226  1FE9                     	;# 
+   227  1FEA                     	;# 
+   228  1FEB                     	;# 
+   229  1FED                     	;# 
+   230  1FEE                     	;# 
+   231  1FEF                     	;# 
+   232                           
+   233                           	psect	idataCOMMON
+   234  07CF                     __pidataCOMMON:
+   235                           
+   236                           ;initializer for _dutyCycle100
+   237  07CF  34E7               	retlw	231
+   238  07D0  3403               	retlw	3
    239                           
    240                           ;initializer for _dutyCycle75
-   241  0766  34EE               	retlw	238
-   242  0767  3402               	retlw	2
+   241  07D1  34EE               	retlw	238
+   242  07D2  3402               	retlw	2
    243                           
    244                           ;initializer for _dutyCycle50
-   245  0768  34F4               	retlw	244
-   246  0769  3401               	retlw	1
+   245  07D3  34F4               	retlw	244
+   246  07D4  3401               	retlw	1
    247                           
    248                           ;initializer for _dutyCycle10
-   249  076A  340A               	retlw	10
-   250  076B  3400               	retlw	0
-   251                           
-   252                           	psect	idataBANK0
-   253  075F                     __pidataBANK0:
-   254                           
-   255                           ;initializer for _dutyCycle100
-   256  075F  34E7               	retlw	231
-   257  0760  3403               	retlw	3
-   258  0014                     _TRISC	set	20
-   259  0013                     _TRISB	set	19
-   260  0012                     _TRISA	set	18
-   261  001A                     _LATC	set	26
-   262  0019                     _LATB	set	25
-   263  0018                     _LATA	set	24
-   264  00A2                     _TRISC2	set	162
-   265  0092                     _TRISA2	set	146
-   266  028E                     _T2CON	set	654
-   267  028C                     _T2TMR	set	652
-   268  028D                     _T2PR	set	653
-   269  0291                     _T2RST	set	657
-   270  028F                     _T2HLT	set	655
-   271  0290                     _T2CLKCON	set	656
-   272  0314                     _PWM3DCL	set	788
-   273  0315                     _PWM3DCH	set	789
-   274  0316                     _PWM3CON	set	790
-   275  070D                     _PIR1bits	set	1805
-   276  0892                     _OSCTUNE	set	2194
-   277  0893                     _OSCFRQ	set	2195
-   278  0891                     _OSCEN	set	2193
-   279  1F12                     _RA2PPS	set	7954
-   280  1F38                     _ANSELAbits	set	7992
-   281  1F52                     _INLVLC	set	8018
-   282  1F47                     _INLVLB	set	8007
-   283  1F3C                     _INLVLA	set	7996
-   284  1F51                     _SLRCONC	set	8017
-   285  1F46                     _SLRCONB	set	8006
-   286  1F3B                     _SLRCONA	set	7995
-   287  1F50                     _ODCONC	set	8016
-   288  1F45                     _ODCONB	set	8005
-   289  1F3A                     _ODCONA	set	7994
-   290  1F4F                     _WPUC	set	8015
-   291  1F39                     _WPUA	set	7993
-   292  1F44                     _WPUB	set	8004
-   293  1F38                     _ANSELA	set	7992
-   294  1F43                     _ANSELB	set	8003
-   295  1F4E                     _ANSELC	set	8014
-   296  FA7A                     _WPUC2	set	64122
-   297                           
-   298                           	psect	cinit
-   299  07E3                     start_initialization:	
-   300                           ; #config settings
-   301                           
-   302  07E3                     __initialization:
-   303                           
-   304                           ; Initialize objects allocated to COMMON
-   305  07E3  3066               	movlw	low __pidataCOMMON
-   306  07E4  0084               	movwf	4
-   307  07E5  3087               	movlw	(high __pidataCOMMON)| (0+128)
-   308  07E6  0085               	movwf	5
-   309  07E7  0012               	moviw fsr0++
-   310  07E8  00F0               	movwf	__pdataCOMMON& (0+127)
-   311  07E9  0012               	moviw fsr0++
-   312  07EA  00F1               	movwf	(__pdataCOMMON+1)& (0+127)
-   313  07EB  0012               	moviw fsr0++
-   314  07EC  00F2               	movwf	(__pdataCOMMON+2)& (0+127)
-   315  07ED  0012               	moviw fsr0++
-   316  07EE  00F3               	movwf	(__pdataCOMMON+3)& (0+127)
-   317  07EF  0012               	moviw fsr0++
-   318  07F0  00F4               	movwf	(__pdataCOMMON+4)& (0+127)
-   319  07F1  0012               	moviw fsr0++
-   320  07F2  00F5               	movwf	(__pdataCOMMON+5)& (0+127)
+   249  07D5  340A               	retlw	10
+   250  07D6  3400               	retlw	0
+   251  0018                     _LATAbits	set	24
+   252  00A2                     _TRISC2	set	162
+   253  0092                     _TRISA2	set	146
+   254  0892                     _OSCTUNE	set	2194
+   255  0893                     _OSCFRQ	set	2195
+   256  0891                     _OSCEN	set	2193
+   257  FA7A                     _WPUC2	set	64122
+   258                           
+   259                           	psect	cinit
+   260  07EF                     start_initialization:	
+   261                           ; #config settings
+   262                           
+   263  07EF                     __initialization:
+   264                           
+   265                           ; Initialize objects allocated to COMMON
+   266  07EF  30CF               	movlw	low __pidataCOMMON
+   267  07F0  0084               	movwf	4
+   268  07F1  3087               	movlw	(high __pidataCOMMON)| (0+128)
+   269  07F2  0085               	movwf	5
+   270  07F3  3070               	movlw	low __pdataCOMMON
+   271  07F4  0086               	movwf	6
+   272  07F5  3000               	movlw	high __pdataCOMMON
+   273  07F6  0087               	movwf	7
+   274  07F7  3008               	movlw	8
+   275  07F8  3187  27C9  3187   	fcall	init_ram
+   276                           
+   277                           ; Clear objects allocated to COMMON
+   278  07FB  01F8               	clrf	__pbssCOMMON& (0+127)
+   279  07FC  01F9               	clrf	(__pbssCOMMON+1)& (0+127)
+   280  07FD                     end_of_initialization:	
+   281                           ;End of C runtime variable initialization code
+   282                           
+   283  07FD                     __end_of__initialization:
+   284  07FD  0140               	movlb	0
+   285  07FE  3187  2FD7         	ljmp	_main	;jump to C main() function
+   286                           
+   287                           	psect	bssCOMMON
+   288  0078                     __pbssCOMMON:
+   289  0078                     _par_impar:
+   290  0078                     	ds	2
+   291                           
+   292                           	psect	dataCOMMON
+   293  0070                     __pdataCOMMON:
+   294  0070                     _dutyCycle100:
+   295  0070                     	ds	2
+   296  0072                     _dutyCycle75:
+   297  0072                     	ds	2
+   298  0074                     _dutyCycle50:
+   299  0074                     	ds	2
+   300  0076                     _dutyCycle10:
+   301  0076                     	ds	2
+   302                           
+   303                           	psect	inittext
+   304  07C9                     init_ram:
+   305  07C9  00FE               	movwf	btemp
+   306  07CA                     initloop:
+   307  07CA  0012               	moviw fsr0++
+   308  07CB  001E               	movwi fsr1++
+   309  07CC  0BFE               	decfsz	btemp,f
+   310  07CD  2FCA               	goto	initloop
+   311  07CE  3400               	retlw	0
+   312                           
+   313                           	psect	cstackCOMMON
+   314  007A                     __pcstackCOMMON:
+   315  007A                     ?_PIN_MANAGER_Initialize:
+   316  007A                     ??_PIN_MANAGER_Initialize:	
+   317                           ; 1 bytes @ 0x0
+   318                           
+   319  007A                     ?_OSCILLATOR_Initialize:	
+   320                           ; 1 bytes @ 0x0
    321                           
-   322                           ; Initialize objects allocated to BANK0
-   323  07F3  3187  275F  3187   	fcall	__pidataBANK0	;fetch initializer
-   324  07F6  00A0               	movwf	__pdataBANK0& (0+127)
-   325  07F7  3187  2760  3187   	fcall	__pidataBANK0+1	;fetch initializer
-   326  07FA  00A1               	movwf	(__pdataBANK0+1)& (0+127)
+   322  007A                     ??_OSCILLATOR_Initialize:	
+   323                           ; 1 bytes @ 0x0
+   324                           
+   325  007A                     ?_main:	
+   326                           ; 1 bytes @ 0x0
    327                           
-   328                           ; Clear objects allocated to COMMON
-   329  07FB  01FB               	clrf	__pbssCOMMON& (0+127)
-   330  07FC  01FC               	clrf	(__pbssCOMMON+1)& (0+127)
-   331  07FD                     end_of_initialization:	
-   332                           ;End of C runtime variable initialization code
-   333                           
-   334  07FD                     __end_of__initialization:
-   335  07FD  0140               	movlb	0
-   336  07FE  3187  2F98         	ljmp	_main	;jump to C main() function
-   337                           
-   338                           	psect	bssCOMMON
-   339  007B                     __pbssCOMMON:
-   340  007B                     _par_impar:
-   341  007B                     	ds	2
-   342                           
-   343                           	psect	dataCOMMON
-   344  0070                     __pdataCOMMON:
-   345  0070                     _dutyCycle75:
-   346  0070                     	ds	2
-   347  0072                     _dutyCycle50:
-   348  0072                     	ds	2
-   349  0074                     _dutyCycle10:
-   350  0074                     	ds	2
-   351                           
-   352                           	psect	dataBANK0
-   353  0020                     __pdataBANK0:
-   354  0020                     _dutyCycle100:
-   355  0020                     	ds	2
-   356                           
-   357                           	psect	cstackCOMMON
-   358  0076                     __pcstackCOMMON:
-   359  0076                     ?_PIN_MANAGER_Initialize:
-   360  0076                     ??_PIN_MANAGER_Initialize:	
-   361                           ; 1 bytes @ 0x0
-   362                           
-   363  0076                     ?_OSCILLATOR_Initialize:	
-   364                           ; 1 bytes @ 0x0
-   365                           
-   366  0076                     ??_OSCILLATOR_Initialize:	
-   367                           ; 1 bytes @ 0x0
-   368                           
-   369  0076                     ?_TMR2_Initialize:	
-   370                           ; 1 bytes @ 0x0
-   371                           
-   372  0076                     ??_TMR2_Initialize:	
-   373                           ; 1 bytes @ 0x0
-   374                           
-   375  0076                     ?_PWM3_Initialize:	
-   376                           ; 1 bytes @ 0x0
+   328  007A                     ??_main:	
+   329                           ; 1 bytes @ 0x0
+   330                           
+   331                           
+   332                           ; 1 bytes @ 0x0
+   333  007A                     	ds	2
+   334                           
+   335                           	psect	maintext
+   336  07D7                     __pmaintext:	
+   337 ;;
+   338 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
+   339 ;;
+   340 ;; *************** function _main *****************
+   341 ;; Defined at:
+   342 ;;		line 81 in file "main.c"
+   343 ;; Parameters:    Size  Location     Type
+   344 ;;		None
+   345 ;; Auto vars:     Size  Location     Type
+   346 ;;		None
+   347 ;; Return value:  Size  Location     Type
+   348 ;;                  1    wreg      void 
+   349 ;; Registers used:
+   350 ;;		wreg, status,2, status,0, pclath, cstack
+   351 ;; Tracked objects:
+   352 ;;		On entry : B3F/0
+   353 ;;		On exit  : 0/0
+   354 ;;		Unchanged: 0/0
+   355 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6
+   356 ;;      Params:         0       0       0       0       0       0       0       0
+   357 ;;      Locals:         0       0       0       0       0       0       0       0
+   358 ;;      Temps:          2       0       0       0       0       0       0       0
+   359 ;;      Totals:         2       0       0       0       0       0       0       0
+   360 ;;Total ram usage:        2 bytes
+   361 ;; Hardware stack levels required when called:    1
+   362 ;; This function calls:
+   363 ;;		_OSCILLATOR_Initialize
+   364 ;;		_PIN_MANAGER_Initialize
+   365 ;; This function is called by:
+   366 ;;		Startup code after reset
+   367 ;; This function uses a non-reentrant model
+   368 ;;
+   369                           
+   370                           
+   371                           ;psect for function _main
+   372  07D7                     _main:
+   373  07D7                     l570:	
+   374                           ;incstack = 0
+   375                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   376                           
    377                           
-   378  0076                     ??_PWM3_Initialize:	
-   379                           ; 1 bytes @ 0x0
+   378                           ;main.c: 83:     PIN_MANAGER_Initialize();
+   379  07D7  3187  27C3  3187   	fcall	_PIN_MANAGER_Initialize
    380                           
-   381  0076                     ?_PWM3_LoadDutyValue:	
-   382                           ; 1 bytes @ 0x0
-   383                           
-   384  0076                     ?_main:	
-   385                           ; 1 bytes @ 0x0
-   386                           
-   387  0076                     PWM3_LoadDutyValue@dutyValue:	
-   388                           ; 1 bytes @ 0x0
+   381                           ;main.c: 84:     OSCILLATOR_Initialize();
+   382  07DA  3187  27BE  3187   	fcall	_OSCILLATOR_Initialize
+   383  07DD                     l572:
+   384                           
+   385                           ;main.c: 86:       LATAbits.LATA2 = 1;
+   386  07DD  0140               	movlb	0	; select bank0
+   387  07DE  1518               	bsf	24,2	;volatile
+   388  07DF                     l574:
    389                           
-   390                           
-   391                           ; 2 bytes @ 0x0
-   392  0076                     	ds	2
-   393  0078                     ??_PWM3_LoadDutyValue:
-   394                           
-   395                           ; 1 bytes @ 0x2
-   396  0078                     	ds	2
-   397  007A                     ??_main:
-   398                           
-   399                           ; 1 bytes @ 0x4
-   400  007A                     	ds	1
-   401                           
-   402                           	psect	maintext
-   403  0798                     __pmaintext:	
-   404 ;;
-   405 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
-   406 ;;
-   407 ;; *************** function _main *****************
-   408 ;; Defined at:
-   409 ;;		line 149 in file "main.c"
-   410 ;; Parameters:    Size  Location     Type
-   411 ;;		None
-   412 ;; Auto vars:     Size  Location     Type
-   413 ;;		None
-   414 ;; Return value:  Size  Location     Type
-   415 ;;                  1    wreg      void 
-   416 ;; Registers used:
-   417 ;;		wreg, status,2, status,0, pclath, cstack
-   418 ;; Tracked objects:
-   419 ;;		On entry : B3F/0
-   420 ;;		On exit  : 0/0
-   421 ;;		Unchanged: 0/0
-   422 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6
-   423 ;;      Params:         0       0       0       0       0       0       0       0
-   424 ;;      Locals:         0       0       0       0       0       0       0       0
-   425 ;;      Temps:          1       0       0       0       0       0       0       0
-   426 ;;      Totals:         1       0       0       0       0       0       0       0
-   427 ;;Total ram usage:        1 bytes
-   428 ;; Hardware stack levels required when called:    1
-   429 ;; This function calls:
-   430 ;;		_OSCILLATOR_Initialize
-   431 ;;		_PIN_MANAGER_Initialize
-   432 ;;		_PWM3_Initialize
-   433 ;;		_PWM3_LoadDutyValue
-   434 ;;		_TMR2_Initialize
-   435 ;; This function is called by:
-   436 ;;		Startup code after reset
-   437 ;; This function uses a non-reentrant model
-   438 ;;
-   439                           
-   440                           
-   441                           ;psect for function _main
-   442  0798                     _main:
-   443  0798                     l711:	
-   444                           ;incstack = 0
-   445                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
-   446                           
-   447                           
-   448                           ;main.c: 151:     PIN_MANAGER_Initialize();
-   449  0798  3187  27B5  3187   	fcall	_PIN_MANAGER_Initialize
-   450  079B                     l713:
-   451                           
-   452                           ;main.c: 152:     OSCILLATOR_Initialize();
-   453  079B  3187  2761  3187   	fcall	_OSCILLATOR_Initialize
-   454  079E                     l715:
-   455                           
-   456                           ;main.c: 153:     TMR2_Initialize();
-   457  079E  3187  2774  3187   	fcall	_TMR2_Initialize
-   458  07A1                     l717:
-   459                           
-   460                           ;main.c: 154:     PWM3_Initialize();
-   461  07A1  3187  276C  3187   	fcall	_PWM3_Initialize
-   462  07A4                     l719:
-   463                           
-   464                           ;main.c: 156:       PWM3_LoadDutyValue(dutyCycle10);
-   465  07A4  300A               	movlw	10
-   466  07A5  00F6               	movwf	PWM3_LoadDutyValue@dutyValue
-   467  07A6  3000               	movlw	0
-   468  07A7  00F7               	movwf	PWM3_LoadDutyValue@dutyValue+1
-   469  07A8  3187  2782  3187   	fcall	_PWM3_LoadDutyValue
-   470  07AB                     l721:
-   471                           
-   472                           ;main.c: 157:       _delay((unsigned long)((10)*(1000000/4000.0)));
-   473  07AB  3004               	movlw	4
-   474  07AC  00FA               	movwf	??_main
-   475  07AD  303E               	movlw	62
-   476  07AE                     u37:
-   477  07AE  0B89               	decfsz	9,f
-   478  07AF  2FAE               	goto	u37
-   479  07B0  0BFA               	decfsz	??_main,f
-   480  07B1  2FAE               	goto	u37
-   481  07B2  2FA4               	goto	l719
-   482  07B3  3180  2802         	ljmp	start
-   483  07B5                     __end_of_main:
-   484                           
-   485                           	psect	text1
-   486  0774                     __ptext1:	
-   487 ;; *************** function _TMR2_Initialize *****************
-   488 ;; Defined at:
-   489 ;;		line 121 in file "main.c"
-   490 ;; Parameters:    Size  Location     Type
-   491 ;;		None
-   492 ;; Auto vars:     Size  Location     Type
-   493 ;;		None
-   494 ;; Return value:  Size  Location     Type
-   495 ;;                  1    wreg      void 
-   496 ;; Registers used:
-   497 ;;		wreg, status,2
-   498 ;; Tracked objects:
-   499 ;;		On entry : 0/0
-   500 ;;		On exit  : 0/0
-   501 ;;		Unchanged: 0/0
-   502 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6
-   503 ;;      Params:         0       0       0       0       0       0       0       0
-   504 ;;      Locals:         0       0       0       0       0       0       0       0
-   505 ;;      Temps:          0       0       0       0       0       0       0       0
-   506 ;;      Totals:         0       0       0       0       0       0       0       0
-   507 ;;Total ram usage:        0 bytes
-   508 ;; Hardware stack levels used:    1
-   509 ;; This function calls:
-   510 ;;		Nothing
-   511 ;; This function is called by:
-   512 ;;		_main
-   513 ;; This function uses a non-reentrant model
-   514 ;;
-   515                           
-   516                           
-   517                           ;psect for function _TMR2_Initialize
-   518  0774                     _TMR2_Initialize:
-   519  0774                     l681:	
-   520                           ;incstack = 0
-   521                           ; Regs used in _TMR2_Initialize: [wreg+status,2]
-   522                           
-   523                           
-   524                           ;main.c: 123:     T2CLKCON = 0x01;
-   525  0774  3001               	movlw	1
-   526  0775  0145               	movlb	5	; select bank5
-   527  0776  0090               	movwf	16	;volatile
-   528  0777                     l683:
-   529                           
-   530                           ;main.c: 124:     T2HLT = 0x00;
-   531  0777  018F               	clrf	15	;volatile
-   532  0778                     l685:
-   533                           
-   534                           ;main.c: 125:     T2RST = 0x00;
-   535  0778  0191               	clrf	17	;volatile
-   536                           
-   537                           ;main.c: 126:     T2PR = 249;
-   538  0779  30F9               	movlw	249
-   539  077A  008D               	movwf	13	;volatile
-   540  077B                     l687:
-   541                           
-   542                           ;main.c: 127:     T2TMR = 0x00;
-   543  077B  018C               	clrf	12	;volatile
-   544  077C                     l689:
-   545                           
-   546                           ;main.c: 128:     PIR1bits.TMR2IF = 0;
-   547  077C  014E               	movlb	14	; select bank14
-   548  077D  130D               	bcf	13,6	;volatile
-   549  077E                     l691:
-   550                           
-   551                           ;main.c: 129:     T2CON = 0b10000000;
-   552  077E  3080               	movlw	128
-   553  077F  0145               	movlb	5	; select bank5
-   554  0780  008E               	movwf	14	;volatile
-   555  0781                     l99:
-   556  0781  0008               	return
-   557  0782                     __end_of_TMR2_Initialize:
-   558                           
-   559                           	psect	text2
-   560  0782                     __ptext2:	
-   561 ;; *************** function _PWM3_LoadDutyValue *****************
-   562 ;; Defined at:
-   563 ;;		line 141 in file "main.c"
-   564 ;; Parameters:    Size  Location     Type
-   565 ;;  dutyValue       2    0[COMMON] unsigned short 
-   566 ;; Auto vars:     Size  Location     Type
-   567 ;;		None
-   568 ;; Return value:  Size  Location     Type
-   569 ;;                  1    wreg      void 
-   570 ;; Registers used:
-   571 ;;		wreg, status,2, status,0
-   572 ;; Tracked objects:
-   573 ;;		On entry : 0/0
-   574 ;;		On exit  : 0/0
-   575 ;;		Unchanged: 0/0
-   576 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6
-   577 ;;      Params:         2       0       0       0       0       0       0       0
-   578 ;;      Locals:         0       0       0       0       0       0       0       0
-   579 ;;      Temps:          2       0       0       0       0       0       0       0
-   580 ;;      Totals:         4       0       0       0       0       0       0       0
-   581 ;;Total ram usage:        4 bytes
-   582 ;; Hardware stack levels used:    1
-   583 ;; This function calls:
-   584 ;;		Nothing
-   585 ;; This function is called by:
-   586 ;;		_main
-   587 ;; This function uses a non-reentrant model
-   588 ;;
-   589                           
-   590                           
-   591                           ;psect for function _PWM3_LoadDutyValue
-   592  0782                     _PWM3_LoadDutyValue:
-   593  0782                     l709:	
-   594                           ;incstack = 0
-   595                           ; Regs used in _PWM3_LoadDutyValue: [wreg+status,2+status,0]
-   596                           
-   597                           
-   598                           ;main.c: 141:   void PWM3_LoadDutyValue(uint16_t dutyValue);main.c: 142:  {;main.c: 143:
-      +                                PWM3DCH = (dutyValue & 0x03FC)>>2;
-   599  0782  0877               	movf	PWM3_LoadDutyValue@dutyValue+1,w
-   600  0783  00F9               	movwf	??_PWM3_LoadDutyValue+1
-   601  0784  0876               	movf	PWM3_LoadDutyValue@dutyValue,w
-   602  0785  00F8               	movwf	??_PWM3_LoadDutyValue
-   603  0786  36F9               	lsrf	??_PWM3_LoadDutyValue+1,f
-   604  0787  0CF8               	rrf	??_PWM3_LoadDutyValue,f
-   605  0788  36F9               	lsrf	??_PWM3_LoadDutyValue+1,f
-   606  0789  0CF8               	rrf	??_PWM3_LoadDutyValue,f
-   607  078A  0878               	movf	??_PWM3_LoadDutyValue,w
-   608  078B  0146               	movlb	6	; select bank6
-   609  078C  0095               	movwf	21	;volatile
-   610                           
-   611                           ;main.c: 144:      PWM3DCL = (dutyValue & 0x0003)<<6;
-   612  078D  0876               	movf	PWM3_LoadDutyValue@dutyValue,w
-   613  078E  3903               	andlw	3
-   614  078F  00F8               	movwf	??_PWM3_LoadDutyValue
-   615  0790  3005               	movlw	5
-   616  0791                     u25:
-   617  0791  35F8               	lslf	??_PWM3_LoadDutyValue,f
-   618  0792  3EFF               	addlw	-1
-   619  0793  1D03               	skipz
-   620  0794  2F91               	goto	u25
-   621  0795  3578               	lslf	??_PWM3_LoadDutyValue,w
-   622  0796  0094               	movwf	20	;volatile
-   623  0797                     l105:
-   624  0797  0008               	return
-   625  0798                     __end_of_PWM3_LoadDutyValue:
-   626                           
-   627                           	psect	text3
-   628  076C                     __ptext3:	
-   629 ;; *************** function _PWM3_Initialize *****************
-   630 ;; Defined at:
-   631 ;;		line 132 in file "main.c"
-   632 ;; Parameters:    Size  Location     Type
-   633 ;;		None
-   634 ;; Auto vars:     Size  Location     Type
-   635 ;;		None
-   636 ;; Return value:  Size  Location     Type
-   637 ;;                  1    wreg      void 
-   638 ;; Registers used:
-   639 ;;		wreg
-   640 ;; Tracked objects:
-   641 ;;		On entry : 0/0
-   642 ;;		On exit  : 0/0
-   643 ;;		Unchanged: 0/0
-   644 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6
-   645 ;;      Params:         0       0       0       0       0       0       0       0
-   646 ;;      Locals:         0       0       0       0       0       0       0       0
-   647 ;;      Temps:          0       0       0       0       0       0       0       0
-   648 ;;      Totals:         0       0       0       0       0       0       0       0
-   649 ;;Total ram usage:        0 bytes
-   650 ;; Hardware stack levels used:    1
-   651 ;; This function calls:
-   652 ;;		Nothing
-   653 ;; This function is called by:
-   654 ;;		_main
-   655 ;; This function uses a non-reentrant model
-   656 ;;
-   657                           
-   658                           
-   659                           ;psect for function _PWM3_Initialize
-   660  076C                     _PWM3_Initialize:
-   661  076C                     l693:	
-   662                           ;incstack = 0
-   663                           ; Regs used in _PWM3_Initialize: [wreg]
-   664                           
-   665                           
-   666                           ;main.c: 134:     PWM3CON = 0x90;
-   667  076C  3090               	movlw	144
-   668  076D  0146               	movlb	6	; select bank6
-   669  076E  0096               	movwf	22	;volatile
-   670                           
-   671                           ;main.c: 135:     PWM3DCH = 0x3E;
-   672  076F  303E               	movlw	62
-   673  0770  0095               	movwf	21	;volatile
-   674                           
-   675                           ;main.c: 136:     PWM3DCL = 0x40;
-   676  0771  3040               	movlw	64
-   677  0772  0094               	movwf	20	;volatile
-   678  0773                     l102:
-   679  0773  0008               	return
-   680  0774                     __end_of_PWM3_Initialize:
-   681                           
-   682                           	psect	text4
-   683  07B5                     __ptext4:	
-   684 ;; *************** function _PIN_MANAGER_Initialize *****************
-   685 ;; Defined at:
-   686 ;;		line 66 in file "main.c"
-   687 ;; Parameters:    Size  Location     Type
-   688 ;;		None
-   689 ;; Auto vars:     Size  Location     Type
-   690 ;;		None
-   691 ;; Return value:  Size  Location     Type
-   692 ;;                  1    wreg      void 
-   693 ;; Registers used:
-   694 ;;		wreg, status,2
-   695 ;; Tracked objects:
-   696 ;;		On entry : 0/0
-   697 ;;		On exit  : 0/0
-   698 ;;		Unchanged: 0/0
-   699 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6
-   700 ;;      Params:         0       0       0       0       0       0       0       0
-   701 ;;      Locals:         0       0       0       0       0       0       0       0
-   702 ;;      Temps:          0       0       0       0       0       0       0       0
-   703 ;;      Totals:         0       0       0       0       0       0       0       0
-   704 ;;Total ram usage:        0 bytes
-   705 ;; Hardware stack levels used:    1
-   706 ;; This function calls:
-   707 ;;		Nothing
-   708 ;; This function is called by:
-   709 ;;		_main
-   710 ;; This function uses a non-reentrant model
-   711 ;;
-   712                           
-   713                           
-   714                           ;psect for function _PIN_MANAGER_Initialize
-   715  07B5                     _PIN_MANAGER_Initialize:
-   716  07B5                     l639:	
-   717                           ;incstack = 0
-   718                           ; Regs used in _PIN_MANAGER_Initialize: [wreg+status,2]
-   719                           
-   720                           
-   721                           ;main.c: 69:     LATA = 0x00;
-   722  07B5  0140               	movlb	0	; select bank0
-   723  07B6  0198               	clrf	24	;volatile
-   724                           
-   725                           ;main.c: 70:     LATB = 0x00;
-   726  07B7  0199               	clrf	25	;volatile
-   727                           
-   728                           ;main.c: 71:     LATC = 0x00;
-   729  07B8  019A               	clrf	26	;volatile
-   730  07B9                     l641:
-   731                           
-   732                           ;main.c: 74:     TRISA = 0x3B;
-   733  07B9  303B               	movlw	59
-   734  07BA  0092               	movwf	18	;volatile
-   735  07BB                     l643:
-   736                           
-   737                           ;main.c: 75:     TRISB = 0xF0;
-   738  07BB  30F0               	movlw	240
-   739  07BC  0093               	movwf	19	;volatile
-   740  07BD                     l645:
-   741                           
-   742                           ;main.c: 76:     TRISC = 0xFF;
-   743  07BD  30FF               	movlw	255
-   744  07BE  0094               	movwf	20	;volatile
-   745  07BF                     l647:
-   746                           
-   747                           ;main.c: 79:     ANSELC = 0xFB;
-   748  07BF  30FB               	movlw	251
-   749  07C0  017E               	movlb	62	; select bank62
-   750  07C1  00CE               	movwf	78	;volatile
-   751  07C2                     l649:
-   752                           
-   753                           ;main.c: 80:     ANSELB = 0xF0;
-   754  07C2  30F0               	movlw	240
-   755  07C3  00C3               	movwf	67	;volatile
-   756  07C4                     l651:
-   757                           
-   758                           ;main.c: 81:     ANSELA = 0x33;
-   759  07C4  3033               	movlw	51
-   760  07C5  00B8               	movwf	56	;volatile
-   761                           
-   762                           ;main.c: 84:     WPUB = 0x00;
-   763  07C6  01C4               	clrf	68	;volatile
-   764  07C7                     l653:
-   765                           
-   766                           ;main.c: 85:     WPUA = 0x04;
-   767  07C7  3004               	movlw	4
-   768  07C8  00B9               	movwf	57	;volatile
-   769  07C9                     l655:
-   770                           
-   771                           ;main.c: 86:     WPUC = 0x04;
-   772  07C9  3004               	movlw	4
-   773  07CA  00CF               	movwf	79	;volatile
-   774                           
-   775                           ;main.c: 89:     ODCONA = 0x00;
-   776  07CB  01BA               	clrf	58	;volatile
-   777                           
-   778                           ;main.c: 90:     ODCONB = 0x00;
-   779  07CC  01C5               	clrf	69	;volatile
-   780                           
-   781                           ;main.c: 91:     ODCONC = 0x00;
-   782  07CD  01D0               	clrf	80	;volatile
-   783  07CE                     l657:
-   784                           
-   785                           ;main.c: 94:     SLRCONA = 0x37;
-   786  07CE  3037               	movlw	55
-   787  07CF  00BB               	movwf	59	;volatile
-   788  07D0                     l659:
-   789                           
-   790                           ;main.c: 95:     SLRCONB = 0xF0;
-   791  07D0  30F0               	movlw	240
-   792  07D1  00C6               	movwf	70	;volatile
-   793  07D2                     l661:
-   794                           
-   795                           ;main.c: 96:     SLRCONC = 0xFF;
-   796  07D2  30FF               	movlw	255
-   797  07D3  00D1               	movwf	81	;volatile
-   798  07D4                     l663:
-   799                           
-   800                           ;main.c: 99:     INLVLA = 0x3F;
-   801  07D4  303F               	movlw	63
-   802  07D5  00BC               	movwf	60	;volatile
-   803  07D6                     l665:
-   804                           
-   805                           ;main.c: 100:     INLVLB = 0xF0;
-   806  07D6  30F0               	movlw	240
-   807  07D7  00C7               	movwf	71	;volatile
-   808  07D8                     l667:
-   809                           
-   810                           ;main.c: 101:     INLVLC = 0xFF;
-   811  07D8  30FF               	movlw	255
-   812  07D9  00D2               	movwf	82	;volatile
-   813  07DA                     l669:
-   814                           
-   815                           ;main.c: 104:     TRISA2 = 0;
-   816  07DA  0140               	movlb	0	; select bank0
-   817  07DB  1112               	bcf	18,2	;volatile
-   818  07DC                     l671:
-   819                           
-   820                           ;main.c: 105:     TRISC2 = 1;
-   821  07DC  1514               	bsf	20,2	;volatile
-   822  07DD                     l673:
-   823                           
-   824                           ;main.c: 106:     WPUC2 = 1;
-   825  07DD  017E               	movlb	62	; select bank62
-   826  07DE  154F               	bsf	79,2	;volatile
-   827  07DF                     l675:
-   828                           
-   829                           ;main.c: 107:     ANSELAbits.ANSA1 = 1;
-   830  07DF  14B8               	bsf	56,1	;volatile
-   831  07E0                     l677:
-   832                           
-   833                           ;main.c: 109:     RA2PPS = 0x03;
-   834  07E0  3003               	movlw	3
-   835  07E1  0092               	movwf	18	;volatile
-   836  07E2                     l93:
-   837  07E2  0008               	return
-   838  07E3                     __end_of_PIN_MANAGER_Initialize:
-   839                           
-   840                           	psect	text5
-   841  0761                     __ptext5:	
-   842 ;; *************** function _OSCILLATOR_Initialize *****************
-   843 ;; Defined at:
-   844 ;;		line 114 in file "main.c"
-   845 ;; Parameters:    Size  Location     Type
-   846 ;;		None
-   847 ;; Auto vars:     Size  Location     Type
-   848 ;;		None
-   849 ;; Return value:  Size  Location     Type
-   850 ;;                  1    wreg      void 
-   851 ;; Registers used:
-   852 ;;		status,2
-   853 ;; Tracked objects:
-   854 ;;		On entry : 0/0
-   855 ;;		On exit  : 0/0
-   856 ;;		Unchanged: 0/0
-   857 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6
-   858 ;;      Params:         0       0       0       0       0       0       0       0
-   859 ;;      Locals:         0       0       0       0       0       0       0       0
-   860 ;;      Temps:          0       0       0       0       0       0       0       0
-   861 ;;      Totals:         0       0       0       0       0       0       0       0
-   862 ;;Total ram usage:        0 bytes
-   863 ;; Hardware stack levels used:    1
-   864 ;; This function calls:
-   865 ;;		Nothing
-   866 ;; This function is called by:
-   867 ;;		_main
-   868 ;; This function uses a non-reentrant model
-   869 ;;
-   870                           
-   871                           
-   872                           ;psect for function _OSCILLATOR_Initialize
-   873  0761                     _OSCILLATOR_Initialize:
-   874  0761                     l679:	
-   875                           ;incstack = 0
-   876                           ; Regs used in _OSCILLATOR_Initialize: [status,2]
-   877                           
-   878                           
-   879                           ;main.c: 116:     OSCEN = 0x00;
-   880  0761  0151               	movlb	17	; select bank17
-   881  0762  0191               	clrf	17	;volatile
-   882                           
-   883                           ;main.c: 117:     OSCFRQ = 0x00;
-   884  0763  0193               	clrf	19	;volatile
-   885                           
-   886                           ;main.c: 118:     OSCTUNE = 0x00;
-   887  0764  0192               	clrf	18	;volatile
-   888  0765                     l96:
-   889  0765  0008               	return
-   890  0766                     __end_of_OSCILLATOR_Initialize:
-   891  007E                     btemp	set	126	;btemp
-   892  007E                     wtemp0	set	126
-   893                           
-   894                           	psect	config
-   895                           
-   896                           ;Config register CONFIG1 @ 0x8007
-   897                           ;	External Oscillator Mode Selection bits
-   898                           ;	FEXTOSC = OFF, Oscillator not enabled
-   899                           ;	Power-up Default Value for COSC bits
-   900                           ;	RSTOSC = HFINTOSC_1MHZ, HFINTOSC (1 MHz)
-   901                           ;	Clock Out Enable bit
-   902                           ;	CLKOUTEN = OFF, CLKOUT function is disabled; I/O function on RA4
-   903                           ;	VDD Range Analog Calibration Selection bit
-   904                           ;	VDDAR = HI, Internal analog systems are calibrated for operation between VDD = 2.3V - 
+   390                           ;main.c: 87:       _delay((unsigned long)((1000)*(1000000/4000.0)));
+   391  07DF  3002               	movlw	2
+   392  07E0  00FB               	movwf	??_main+1
+   393  07E1  3045               	movlw	69
+   394  07E2  00FA               	movwf	??_main
+   395  07E3  30AA               	movlw	170
+   396  07E4                     u17:
+   397  07E4  0B89               	decfsz	9,f
+   398  07E5  2FE4               	goto	u17
+   399  07E6  0BFA               	decfsz	??_main,f
+   400  07E7  2FE4               	goto	u17
+   401  07E8  0BFB               	decfsz	??_main+1,f
+   402  07E9  2FE4               	goto	u17
+   403  07EA                     l576:
+   404                           
+   405                           ;main.c: 88:       LATAbits.LATA2 = 0;
+   406  07EA  0140               	movlb	0	; select bank0
+   407  07EB  1118               	bcf	24,2	;volatile
+   408  07EC  2FDD               	goto	l572
+   409  07ED  3180  2802         	ljmp	start
+   410  07EF                     __end_of_main:
+   411                           
+   412                           	psect	text1
+   413  07C3                     __ptext1:	
+   414 ;; *************** function _PIN_MANAGER_Initialize *****************
+   415 ;; Defined at:
+   416 ;;		line 62 in file "main.c"
+   417 ;; Parameters:    Size  Location     Type
+   418 ;;		None
+   419 ;; Auto vars:     Size  Location     Type
+   420 ;;		None
+   421 ;; Return value:  Size  Location     Type
+   422 ;;                  1    wreg      void 
+   423 ;; Registers used:
+   424 ;;		None
+   425 ;; Tracked objects:
+   426 ;;		On entry : 0/0
+   427 ;;		On exit  : 0/0
+   428 ;;		Unchanged: 0/0
+   429 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6
+   430 ;;      Params:         0       0       0       0       0       0       0       0
+   431 ;;      Locals:         0       0       0       0       0       0       0       0
+   432 ;;      Temps:          0       0       0       0       0       0       0       0
+   433 ;;      Totals:         0       0       0       0       0       0       0       0
+   434 ;;Total ram usage:        0 bytes
+   435 ;; Hardware stack levels used:    1
+   436 ;; This function calls:
+   437 ;;		Nothing
+   438 ;; This function is called by:
+   439 ;;		_main
+   440 ;; This function uses a non-reentrant model
+   441 ;;
+   442                           
+   443                           
+   444                           ;psect for function _PIN_MANAGER_Initialize
+   445  07C3                     _PIN_MANAGER_Initialize:
+   446  07C3                     l566:	
+   447                           ;incstack = 0
+   448                           ; Regs used in _PIN_MANAGER_Initialize: []
+   449                           
+   450                           
+   451                           ;main.c: 65:     TRISA2 = 0;
+   452  07C3  0140               	movlb	0	; select bank0
+   453  07C4  1112               	bcf	18,2	;volatile
+   454                           
+   455                           ;main.c: 66:     TRISC2 = 1;
+   456  07C5  1514               	bsf	20,2	;volatile
+   457                           
+   458                           ;main.c: 67:     WPUC2 = 1;
+   459  07C6  017E               	movlb	62	; select bank62
+   460  07C7  154F               	bsf	79,2	;volatile
+   461  07C8                     l29:
+   462  07C8  0008               	return
+   463  07C9                     __end_of_PIN_MANAGER_Initialize:
+   464                           
+   465                           	psect	text2
+   466  07BE                     __ptext2:	
+   467 ;; *************** function _OSCILLATOR_Initialize *****************
+   468 ;; Defined at:
+   469 ;;		line 72 in file "main.c"
+   470 ;; Parameters:    Size  Location     Type
+   471 ;;		None
+   472 ;; Auto vars:     Size  Location     Type
+   473 ;;		None
+   474 ;; Return value:  Size  Location     Type
+   475 ;;                  1    wreg      void 
+   476 ;; Registers used:
+   477 ;;		status,2
+   478 ;; Tracked objects:
+   479 ;;		On entry : 0/0
+   480 ;;		On exit  : 0/0
+   481 ;;		Unchanged: 0/0
+   482 ;; Data sizes:     COMMON   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6
+   483 ;;      Params:         0       0       0       0       0       0       0       0
+   484 ;;      Locals:         0       0       0       0       0       0       0       0
+   485 ;;      Temps:          0       0       0       0       0       0       0       0
+   486 ;;      Totals:         0       0       0       0       0       0       0       0
+   487 ;;Total ram usage:        0 bytes
+   488 ;; Hardware stack levels used:    1
+   489 ;; This function calls:
+   490 ;;		Nothing
+   491 ;; This function is called by:
+   492 ;;		_main
+   493 ;; This function uses a non-reentrant model
+   494 ;;
+   495                           
+   496                           
+   497                           ;psect for function _OSCILLATOR_Initialize
+   498  07BE                     _OSCILLATOR_Initialize:
+   499  07BE                     l568:	
+   500                           ;incstack = 0
+   501                           ; Regs used in _OSCILLATOR_Initialize: [status,2]
+   502                           
+   503                           
+   504                           ;main.c: 74:     OSCEN = 0x00;
+   505  07BE  0151               	movlb	17	; select bank17
+   506  07BF  0191               	clrf	17	;volatile
+   507                           
+   508                           ;main.c: 75:     OSCFRQ = 0x00;
+   509  07C0  0193               	clrf	19	;volatile
+   510                           
+   511                           ;main.c: 76:     OSCTUNE = 0x00;
+   512  07C1  0192               	clrf	18	;volatile
+   513  07C2                     l32:
+   514  07C2  0008               	return
+   515  07C3                     __end_of_OSCILLATOR_Initialize:
+   516  007E                     btemp	set	126	;btemp
+   517  007E                     wtemp0	set	126
+   518                           
+   519                           	psect	config
+   520                           
+   521                           ;Config register CONFIG1 @ 0x8007
+   522                           ;	External Oscillator Mode Selection bits
+   523                           ;	FEXTOSC = OFF, Oscillator not enabled
+   524                           ;	Power-up Default Value for COSC bits
+   525                           ;	RSTOSC = HFINTOSC_1MHZ, HFINTOSC (1 MHz)
+   526                           ;	Clock Out Enable bit
+   527                           ;	CLKOUTEN = OFF, CLKOUT function is disabled; I/O function on RA4
+   528                           ;	VDD Range Analog Calibration Selection bit
+   529                           ;	VDDAR = HI, Internal analog systems are calibrated for operation between VDD = 2.3V - 
       +                          5.5V
-   905  8007                     	org	32775
-   906  8007  3FED               	dw	16365
-   907                           
-   908                           ;Config register CONFIG2 @ 0x8008
-   909                           ;	Master Clear Enable bit
-   910                           ;	MCLRE = EXTMCLR, If LVP = 0, MCLR pin is MCLR; If LVP = 1, RA3 pin function is MCLR
-   911                           ;	Power-up Timer Selection bits
-   912                           ;	PWRTS = PWRT_OFF, PWRT is disabled
-   913                           ;	WDT Operating Mode bits
-   914                           ;	WDTE = OFF, WDT disabled; SEN is ignored
-   915                           ;	Brown-out Reset Enable bits
-   916                           ;	BOREN = ON, Brown-out Reset Enabled, SBOREN bit is ignored
-   917                           ;	Brown-out Reset Voltage Selection bit
-   918                           ;	BORV = LO, Brown-out Reset Voltage (VBOR) set to 1.9V
-   919                           ;	PPSLOCKED One-Way Set Enable bit
-   920                           ;	PPS1WAY = ON, The PPSLOCKED bit can be cleared and set only once in software
-   921                           ;	Stack Overflow/Underflow Reset Enable bit
-   922                           ;	STVREN = ON, Stack Overflow or Underflow will cause a reset
-   923  8008                     	org	32776
-   924  8008  3FE7               	dw	16359
-   925                           
-   926                           ;Config register CONFIG4 @ 0x800A
-   927                           ;	Boot Block Size Selection bits
-   928                           ;	BBSIZE = BB512, 512 words boot block size
-   929                           ;	Boot Block Enable bit
-   930                           ;	BBEN = OFF, Boot Block is disabled
-   931                           ;	SAF Enable bit
-   932                           ;	SAFEN = OFF, SAF is disabled
-   933                           ;	Application Block Write Protection bit
-   934                           ;	WRTAPP = OFF, Application Block is not write-protected
-   935                           ;	Boot Block Write Protection bit
-   936                           ;	WRTB = OFF, Boot Block is not write-protected
-   937                           ;	Configuration Registers Write Protection bit
-   938                           ;	WRTC = OFF, Configuration Registers are not write-protected
-   939                           ;	Storage Area Flash (SAF) Write Protection bit
-   940                           ;	WRTSAF = OFF, SAF is not write-protected
-   941                           ;	Low Voltage Programming Enable bit
-   942                           ;	LVP = ON, Low Voltage programming enabled. MCLR/Vpp pin function is MCLR. MCLRE Config
+   530  8007                     	org	32775
+   531  8007  3FED               	dw	16365
+   532                           
+   533                           ;Config register CONFIG2 @ 0x8008
+   534                           ;	Master Clear Enable bit
+   535                           ;	MCLRE = EXTMCLR, If LVP = 0, MCLR pin is MCLR; If LVP = 1, RA3 pin function is MCLR
+   536                           ;	Power-up Timer Selection bits
+   537                           ;	PWRTS = PWRT_OFF, PWRT is disabled
+   538                           ;	WDT Operating Mode bits
+   539                           ;	WDTE = OFF, WDT disabled; SEN is ignored
+   540                           ;	Brown-out Reset Enable bits
+   541                           ;	BOREN = ON, Brown-out Reset Enabled, SBOREN bit is ignored
+   542                           ;	Brown-out Reset Voltage Selection bit
+   543                           ;	BORV = LO, Brown-out Reset Voltage (VBOR) set to 1.9V
+   544                           ;	PPSLOCKED One-Way Set Enable bit
+   545                           ;	PPS1WAY = ON, The PPSLOCKED bit can be cleared and set only once in software
+   546                           ;	Stack Overflow/Underflow Reset Enable bit
+   547                           ;	STVREN = ON, Stack Overflow or Underflow will cause a reset
+   548  8008                     	org	32776
+   549  8008  3FE7               	dw	16359
+   550                           
+   551                           ;Config register CONFIG4 @ 0x800A
+   552                           ;	Boot Block Size Selection bits
+   553                           ;	BBSIZE = BB512, 512 words boot block size
+   554                           ;	Boot Block Enable bit
+   555                           ;	BBEN = OFF, Boot Block is disabled
+   556                           ;	SAF Enable bit
+   557                           ;	SAFEN = OFF, SAF is disabled
+   558                           ;	Application Block Write Protection bit
+   559                           ;	WRTAPP = OFF, Application Block is not write-protected
+   560                           ;	Boot Block Write Protection bit
+   561                           ;	WRTB = OFF, Boot Block is not write-protected
+   562                           ;	Configuration Registers Write Protection bit
+   563                           ;	WRTC = OFF, Configuration Registers are not write-protected
+   564                           ;	Storage Area Flash (SAF) Write Protection bit
+   565                           ;	WRTSAF = OFF, SAF is not write-protected
+   566                           ;	Low Voltage Programming Enable bit
+   567                           ;	LVP = ON, Low Voltage programming enabled. MCLR/Vpp pin function is MCLR. MCLRE Config
       +                          uration bit is ignored.
-   943  800A                     	org	32778
-   944  800A  3FFF               	dw	16383
-   945                           
-   946                           ;Config register CONFIG5 @ 0x800B
-   947                           ;	User Program Flash Memory Code Protection bit
-   948                           ;	CP = OFF, User Program Flash Memory code protection is disabled
-   949  800B                     	org	32779
-   950  800B  3FFF               	dw	16383
+   568  800A                     	org	32778
+   569  800A  3FFF               	dw	16383
+   570                           
+   571                           ;Config register CONFIG5 @ 0x800B
+   572                           ;	User Program Flash Memory Code Protection bit
+   573                           ;	CP = OFF, User Program Flash Memory code protection is disabled
+   574  800B                     	org	32779
+   575  800B  3FFF               	dw	16383
 
 Data Sizes:
     Strings     0
@@ -976,8 +600,8 @@ Data Sizes:
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMMON           14      5      13
-    BANK0            80      0       2
+    COMMON           14      2      12
+    BANK0            80      0       0
     BANK1            80      0       0
     BANK2            80      0       0
     BANK3            80      0       0
@@ -991,7 +615,7 @@ Pointer List with Targets:
 
 Critical Paths under _main in COMMON
 
-    _main->_PWM3_LoadDutyValue
+    None.
 
 Critical Paths under _main in BANK0
 
@@ -1026,20 +650,10 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 1     1      0     120
-                                              4 COMMON     1     1      0
+ (0) _main                                                 2     2      0       0
+                                              0 COMMON     2     2      0
               _OSCILLATOR_Initialize
              _PIN_MANAGER_Initialize
-                    _PWM3_Initialize
-                 _PWM3_LoadDutyValue
-                    _TMR2_Initialize
- ---------------------------------------------------------------------------------
- (1) _TMR2_Initialize                                      0     0      0       0
- ---------------------------------------------------------------------------------
- (1) _PWM3_LoadDutyValue                                   4     2      2     120
-                                              0 COMMON     4     2      2
- ---------------------------------------------------------------------------------
- (1) _PWM3_Initialize                                      0     0      0       0
  ---------------------------------------------------------------------------------
  (1) _PIN_MANAGER_Initialize                               0     0      0       0
  ---------------------------------------------------------------------------------
@@ -1053,9 +667,6 @@ Call Graph Tables:
  _main (ROOT)
    _OSCILLATOR_Initialize
    _PIN_MANAGER_Initialize
-   _PWM3_Initialize
-   _PWM3_LoadDutyValue
-   _TMR2_Initialize
 
  Address spaces:
 Name               Size   Autos  Total    Cost      Usage
@@ -1065,7 +676,7 @@ CODE                 0      0       0       0        0.0%
 BITCOMMON            E      0       0       1        0.0%
 BITSFR0              0      0       0       1        0.0%
 SFR0                 0      0       0       1        0.0%
-COMMON               E      5       D       2       92.9%
+COMMON               E      2       C       2       85.7%
 BITSFR1              0      0       0       2        0.0%
 SFR1                 0      0       0       2        0.0%
 BITSFR2              0      0       0       3        0.0%
@@ -1073,11 +684,11 @@ SFR2                 0      0       0       3        0.0%
 STACK                0      0       0       3        0.0%
 BITSFR3              0      0       0       4        0.0%
 SFR3                 0      0       0       4        0.0%
-ABS                  0      0       F       4        0.0%
+ABS                  0      0       C       4        0.0%
 BITBANK0            50      0       0       5        0.0%
 BITSFR4              0      0       0       5        0.0%
 SFR4                 0      0       0       5        0.0%
-BANK0               50      0       2       6        2.5%
+BANK0               50      0       0       6        0.0%
 BITSFR5              0      0       0       6        0.0%
 SFR5                 0      0       0       6        0.0%
 BITBANK1            50      0       0       7        0.0%
@@ -1118,7 +729,7 @@ BITSFR17             0      0       0      18        0.0%
 SFR17                0      0       0      18        0.0%
 BITSFR18             0      0       0      19        0.0%
 SFR18                0      0       0      19        0.0%
-DATA                 0      0       F      19        0.0%
+DATA                 0      0       C      19        0.0%
 BITSFR19             0      0       0      20        0.0%
 SFR19                0      0       0      20        0.0%
 BITSFR20             0      0       0      21        0.0%
@@ -1211,53 +822,26 @@ BITSFR63             0      0       0      64        0.0%
 SFR63                0      0       0      64        0.0%
 
 
-Microchip Technology PIC Macro Assembler V2.30 build 20200825195618 
-Symbol Table                                                                                   Thu Nov 19 09:05:03 2020
+Microchip Technology PIC Macro Assembler V2.31 build 20201012212115 
+Symbol Table                                                                                   Thu Apr 22 15:04:26 2021
 
-                             l93 07E2                               l96 0765                               l99 0781  
-                             u25 0791                               u37 07AE                              l102 0773  
-                            l105 0797                              l711 0798                              l641 07B9  
-                            l721 07AB                              l713 079B                              l651 07C4  
-                            l643 07BB                              l715 079E                              l661 07D2  
-                            l653 07C7                              l645 07BD                              l709 0782  
-                            l717 07A1                              l671 07DC                              l663 07D4  
-                            l655 07C9                              l647 07BF                              l639 07B5  
-                            l719 07A4                              l673 07DD                              l665 07D6  
-                            l657 07CE                              l649 07C2                              l681 0774  
-                            l675 07DF                              l667 07D8                              l659 07D0  
-                            l691 077E                              l683 0777                              l677 07E0  
-                            l669 07DA                              l693 076C                              l685 0778  
-                            l679 0761                              l687 077B                              l689 077C  
-                _TMR2_Initialize 0774                              wreg 0009                             _LATA 0018  
-                           _LATB 0019                             _LATC 001A                             _T2PR 028D  
-                           _WPUA 1F39                             _WPUB 1F44                             _WPUC 1F4F  
-                           _main 0798                             fsr0h 0005                             fsr0l 0004  
+                             l32 07C2                               l29 07C8                               u17 07E4  
+                            l570 07D7                              l572 07DD                              l566 07C3  
+                            l574 07DF                              l568 07BE                              l576 07EA  
+                            wreg 0009                             _main 07D7                             fsr0h 0005  
+                           fsr1h 0007                             fsr0l 0004                             fsr1l 0006  
                            btemp 007E                             start 0002   __size_of_OSCILLATOR_Initialize 0005  
-  __end_of_OSCILLATOR_Initialize 0766                            ?_main 0076                            _T2CON 028E  
-                          _T2HLT 028F                            _T2TMR 028C                            _T2RST 0291  
-                          _OSCEN 0891                            _TRISA 0012                            _TRISB 0013  
-                          _TRISC 0014                            _WPUC2 FA7A          __end_of_PWM3_Initialize 0774  
-                          wtemp0 007E                  __initialization 07E3                     __end_of_main 07B5  
-        __end_of_TMR2_Initialize 0782                           ??_main 007A                           _ANSELA 1F38  
-                         _ANSELB 1F43                           _ANSELC 1F4E                           _RA2PPS 1F12  
-                         _ODCONA 1F3A                           _ODCONB 1F45                           _ODCONC 1F50  
-                         _INLVLA 1F3C                           _INLVLB 1F47                           _INLVLC 1F52  
-                         _OSCFRQ 0893                           _TRISA2 0092                           _TRISC2 00A2  
-    __size_of_PWM3_LoadDutyValue 0016                     __pdataCOMMON 0070                 ?_PWM3_Initialize 0076  
-        __end_of__initialization 07FD                   __pcstackCOMMON 0076                     __pidataBANK0 075F  
-               ?_TMR2_Initialize 0076                       __pmaintext 0798                          _OSCTUNE 0892  
-                        _PWM3DCH 0315                          _PWM3DCL 0314                          _PWM3CON 0316  
-                        _SLRCONA 1F3B                          _SLRCONB 1F46                          _SLRCONC 1F51  
-                        __ptext1 0774                          __ptext2 0782                          __ptext3 076C  
-                        __ptext4 07B5                          __ptext5 0761            _OSCILLATOR_Initialize 0761  
-       ??_PIN_MANAGER_Initialize 0076             end_of_initialization 07FD       __end_of_PWM3_LoadDutyValue 0798  
-                  __pidataCOMMON 0766           ?_OSCILLATOR_Initialize 0076              start_initialization 07E3  
-__size_of_PIN_MANAGER_Initialize 002E         __size_of_PWM3_Initialize 0008                      __pdataBANK0 0020  
-                    __pbssCOMMON 007B                        ___latbits 0001         __size_of_TMR2_Initialize 000E  
-                   _dutyCycle100 0020           _PIN_MANAGER_Initialize 07B5                         _T2CLKCON 0290  
-                      _par_impar 007B                         _PIR1bits 070D                ??_PWM3_Initialize 0076  
-              ??_TMR2_Initialize 0076          ??_OSCILLATOR_Initialize 0076               _PWM3_LoadDutyValue 0782  
-                     _ANSELAbits 1F38                      _dutyCycle10 0074                      _dutyCycle50 0072  
-                    _dutyCycle75 0070              ?_PWM3_LoadDutyValue 0076                    __size_of_main 001D  
-           ??_PWM3_LoadDutyValue 0078          ?_PIN_MANAGER_Initialize 0076      PWM3_LoadDutyValue@dutyValue 0076  
- __end_of_PIN_MANAGER_Initialize 07E3                  _PWM3_Initialize 076C  
+  __end_of_OSCILLATOR_Initialize 07C3                            ?_main 007A                            _OSCEN 0891  
+                          _WPUC2 FA7A                            wtemp0 007E                  __initialization 07EF  
+                   __end_of_main 07EF                           ??_main 007A                           _OSCFRQ 0893  
+                         _TRISA2 0092                           _TRISC2 00A2                     __pdataCOMMON 0070  
+        __end_of__initialization 07FD                   __pcstackCOMMON 007A                       __pmaintext 07D7  
+                        _OSCTUNE 0892                          __ptext1 07C3                          __ptext2 07BE  
+          _OSCILLATOR_Initialize 07BE         ??_PIN_MANAGER_Initialize 007A             end_of_initialization 07FD  
+                        init_ram 07C9                          initloop 07CA                    __pidataCOMMON 07CF  
+         ?_OSCILLATOR_Initialize 007A              start_initialization 07EF  __size_of_PIN_MANAGER_Initialize 0006  
+                    __pbssCOMMON 0078                        ___latbits 0001                     _dutyCycle100 0070  
+         _PIN_MANAGER_Initialize 07C3                        _par_impar 0078                         _LATAbits 0018  
+        ??_OSCILLATOR_Initialize 007A                      _dutyCycle10 0076                      _dutyCycle50 0074  
+                    _dutyCycle75 0072                    __size_of_main 0018          ?_PIN_MANAGER_Initialize 007A  
+ __end_of_PIN_MANAGER_Initialize 07C9  

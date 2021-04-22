@@ -61,48 +61,10 @@ uint16_t dutyCycle100 = 0x03E7;
 ///////////// DECLARACI�N DE FUNCIONES Y PROCEDIMIENTOS ///////////////////
 void PIN_MANAGER_Initialize(void)
 {
-    // LATx registers
-    LATA = 0x00;
-    LATB = 0x00;
-    LATC = 0x00;
-
     // TRISx registers
-    TRISA = 0x3B;
-    TRISB = 0xF0;
-    TRISC = 0xFF;
-
-    // ANSELx registers
-    ANSELC = 0xFB;
-    ANSELB = 0xF0;
-    ANSELA = 0x33;
-
-    // WPUx registers
-    WPUB = 0x00;
-    WPUA = 0x04;
-    WPUC = 0x04;
-
-    // ODx registers
-    ODCONA = 0x00;
-    ODCONB = 0x00;
-    ODCONC = 0x00;
-
-    // SLRCONx registers
-    SLRCONA = 0x37;
-    SLRCONB = 0xF0;
-    SLRCONC = 0xFF;
-
-    // INLVLx registers
-    INLVLA = 0x3F;
-    INLVLB = 0xF0;
-    INLVLC = 0xFF;
-
-    // TRISx registers
-    TRISA2 = 0;          // Definiendo puerto A2 como salida digital
-    TRISC2 = 1;          // Definiendo puerto C2 como entada digital
-    WPUC2  = 1;          // Activando resistencia d pull-up
-    ANSELAbits.ANSA1 = 1;// Definiendo entrada como analoga
-
-    RA2PPS = 0x03;                                                              // RA2->PWM3:PWM3OUT;
+    TRISA2 = 0;          // Definiendo puerto A2 como salida digital  [LED]
+    TRISC2 = 1;          // Definiendo puerto C2 como entrada digital [Pulsador]
+    WPUC2  = 1;          // Activando resistencia d pull-up                                                           // RA2->PWM3:PWM3OUT;
 }
 
 
@@ -114,42 +76,15 @@ void OSCILLATOR_Initialize(void)
     OSCTUNE = 0x00;
 }
 
-void TMR2_Initialize(void)
-{
-    T2CLKCON = 0x01;                                                            // T2CS FOSC/4;
-    T2HLT = 0x00;                                                               // T2PSYNC Not Synchronized; T2MODE Software control; T2CKPOL Rising Edge; T2CKSYNC Not Synchronized;
-    T2RST = 0x00;
-    T2PR = 249;
-    T2TMR = 0x00;
-    PIR1bits.TMR2IF = 0;                                                        // Clearing IF flag.
-    T2CON = 0b10000000;                                                               // T2CKPS 1:1; T2OUTPS 1:1; TMR2ON on;
-}
-
- void PWM3_Initialize(void)
- {
-    PWM3CON = 0x90;                                                             // PWM3POL active_low; PWM3EN enabled;
-    PWM3DCH = 0x3E;
-    PWM3DCL = 0x40;
- }
-
-
-
-  void PWM3_LoadDutyValue(uint16_t dutyValue)
- {     
-     PWM3DCH = (dutyValue & 0x03FC)>>2;                                         // Writing to 8 MSBs of PWM duty cycle in PWMDCH register
-     PWM3DCL = (dutyValue & 0x0003)<<6;                                         // Writing to 2 LSBs of PWM duty cycle in PWMDCL register
- }
 /////////////  INICIO DEL PROGRAMA PRINCIPAL //////////////////////////
-
 
 void main(void)
 {
     PIN_MANAGER_Initialize();
     OSCILLATOR_Initialize();
-    TMR2_Initialize();
-    PWM3_Initialize();
     while(1){
-      PWM3_LoadDutyValue(dutyCycle10);
-      __delay_ms(10);
+      LATAbits.LATA2 = 1;
+      __delay_ms(1000);
+      LATAbits.LATA2 = 0;
     }
 }
