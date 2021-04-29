@@ -6087,9 +6087,31 @@ uint16_t dutyCycle100 = 0x03E7;
 void PIN_MANAGER_Initialize(void)
 {
 
+    LATA = 0x00;
+    LATB = 0x00;
+    LATC = 0x00;
+
+
+    TRISA = 0x3B;
+    TRISB = 0xF0;
+    TRISC = 0xFF;
+
+
+    ANSELC = 0x00;
+    ANSELB = 0x00;
+    ANSELA = 0x00;
+
+
+    WPUB = 0x00;
+    WPUA = 0x04;
+    WPUC = 0x04;
+
+
     TRISA2 = 0;
     TRISC2 = 1;
     WPUC2 = 1;
+    ANSELAbits.ANSA1 = 1;
+
 }
 
 
@@ -6099,6 +6121,7 @@ void OSCILLATOR_Initialize(void)
     OSCEN = 0x00;
     OSCFRQ = 0x00;
     OSCTUNE = 0x00;
+
 }
 
 
@@ -6107,9 +6130,13 @@ void main(void)
 {
     PIN_MANAGER_Initialize();
     OSCILLATOR_Initialize();
+
+    LATAbits.LATA2 = 1;
     while(1){
-      LATAbits.LATA2 = 1;
-      _delay((unsigned long)((1000)*(1000000/4000.0)));
-      LATAbits.LATA2 = 0;
+        if (PORTCbits.RC2==1){
+            LATAbits.LATA2 = 0;
+        }else{
+           LATAbits.LATA2 = 1;
+        }
     }
 }

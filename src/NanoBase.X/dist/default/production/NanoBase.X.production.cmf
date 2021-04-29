@@ -11,20 +11,19 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$dist/default/production/NanoBase.X.production.o
-cinit CODE 0 7EF 7EF 11 2
-text1 CODE 0 7C3 7C3 6 2
-text2 CODE 0 7BE 7BE 5 2
-idataCOMMON CODE 0 7CF 7CF 8 2
-maintext CODE 0 7D7 7D7 18 2
-cstackCOMMON COMMON 1 7A 7A 2 1
-inittext CODE 0 7C9 7C9 6 2
-dataCOMMON COMMON 1 70 70 8 1
-bssCOMMON COMMON 1 78 78 2 1
-config CONFIG 4 8007 8007 5 2
-$/tmp/xcXBeBBEF.o
+$/tmp/xcXBKEcMf.o
 reset_vec CODE 0 0 0 2 2
 end_init CODE 0 2 2 2 2
+config CONFIG 4 8007 8007 5 2
+$dist/default/production/NanoBase.X.production.o
+cinit CODE 0 7EF 7EF 11 2
+text1 CODE 0 7D5 7D5 1A 2
+text2 CODE 0 7B0 7B0 5 2
+idataCOMMON CODE 0 7BB 7BB 8 2
+maintext CODE 0 7C3 7C3 12 2
+inittext CODE 0 7B5 7B5 6 2
+dataCOMMON COMMON 1 70 70 8 1
+bssCOMMON COMMON 1 78 78 2 1
 config CONFIG 4 8007 8007 5 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -46,9 +45,9 @@ BANK3 1A0-1EF 1
 BANK4 220-26F 1
 BANK5 2A0-2EF 1
 BANK6 320-32F 1
-CONST 4-7BD 2
+CONST 4-7AF 2
 CONST 800-FFF 2
-ENTRY 4-7BD 2
+ENTRY 4-7AF 2
 ENTRY 800-FFF 2
 IDLOC 8000-8003 2
 SFR10 500-56F 1
@@ -106,7 +105,7 @@ SFR61 1E80-1EEF 1
 SFR62 1F00-1F6F 1
 SFR63 1F80-1FEF 1
 STACK 2000-21EF 1
-CODE 4-7BD 2
+CODE 4-7AF 2
 CODE 800-FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
@@ -119,10 +118,10 @@ SFR7 380-3EF 1
 SFR8 400-46F 1
 SFR9 480-4EF 1
 BIGRAM 2000-21EF 1
-COMMON 7C-7D 1
-STRCODE 4-7BD 2
+COMMON 7A-7D 1
+STRCODE 4-7AF 2
 STRCODE 800-FFF 2
-STRING 4-7BD 2
+STRING 4-7AF 2
 STRING 800-FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -138,47 +137,62 @@ STRING 800-FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production/NanoBase.X.production.o
-7EF cinit CODE >533:/tmp/xcXdlkDjI.s
-7EF cinit CODE >536:/tmp/xcXdlkDjI.s
-7EF cinit CODE >584:/tmp/xcXdlkDjI.s
-7F0 cinit CODE >585:/tmp/xcXdlkDjI.s
-7F1 cinit CODE >586:/tmp/xcXdlkDjI.s
-7F2 cinit CODE >587:/tmp/xcXdlkDjI.s
-7F3 cinit CODE >588:/tmp/xcXdlkDjI.s
-7F4 cinit CODE >589:/tmp/xcXdlkDjI.s
-7F5 cinit CODE >590:/tmp/xcXdlkDjI.s
-7F6 cinit CODE >591:/tmp/xcXdlkDjI.s
-7F7 cinit CODE >592:/tmp/xcXdlkDjI.s
-7F8 cinit CODE >593:/tmp/xcXdlkDjI.s
-7FB cinit CODE >598:/tmp/xcXdlkDjI.s
-7FC cinit CODE >599:/tmp/xcXdlkDjI.s
-7FD cinit CODE >605:/tmp/xcXdlkDjI.s
-7FD cinit CODE >607:/tmp/xcXdlkDjI.s
-7FE cinit CODE >608:/tmp/xcXdlkDjI.s
-7BE text2 CODE >72:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
-7BE text2 CODE >74:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
-7C0 text2 CODE >75:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
-7C1 text2 CODE >76:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
-7C2 text2 CODE >77:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
-7C3 text1 CODE >62:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
-7C3 text1 CODE >65:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
-7C5 text1 CODE >66:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
-7C6 text1 CODE >67:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
-7C8 text1 CODE >68:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
-7D7 maintext CODE >81:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
-7D7 maintext CODE >83:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
-7DA maintext CODE >84:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
-7DD maintext CODE >86:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
-7DF maintext CODE >87:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
-7EA maintext CODE >88:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
-7C9 inittext CODE >573:/tmp/xcXdlkDjI.s
-7C9 inittext CODE >574:/tmp/xcXdlkDjI.s
-7CA inittext CODE >575:/tmp/xcXdlkDjI.s
-7CA inittext CODE >576:/tmp/xcXdlkDjI.s
-7CB inittext CODE >577:/tmp/xcXdlkDjI.s
-7CC inittext CODE >578:/tmp/xcXdlkDjI.s
-7CD inittext CODE >579:/tmp/xcXdlkDjI.s
-7CE inittext CODE >580:/tmp/xcXdlkDjI.s
+7EF cinit CODE >561:/tmp/xcXDEPkdd.s
+7EF cinit CODE >564:/tmp/xcXDEPkdd.s
+7EF cinit CODE >612:/tmp/xcXDEPkdd.s
+7F0 cinit CODE >613:/tmp/xcXDEPkdd.s
+7F1 cinit CODE >614:/tmp/xcXDEPkdd.s
+7F2 cinit CODE >615:/tmp/xcXDEPkdd.s
+7F3 cinit CODE >616:/tmp/xcXDEPkdd.s
+7F4 cinit CODE >617:/tmp/xcXDEPkdd.s
+7F5 cinit CODE >618:/tmp/xcXDEPkdd.s
+7F6 cinit CODE >619:/tmp/xcXDEPkdd.s
+7F7 cinit CODE >620:/tmp/xcXDEPkdd.s
+7F8 cinit CODE >621:/tmp/xcXDEPkdd.s
+7FB cinit CODE >626:/tmp/xcXDEPkdd.s
+7FC cinit CODE >627:/tmp/xcXDEPkdd.s
+7FD cinit CODE >633:/tmp/xcXDEPkdd.s
+7FD cinit CODE >635:/tmp/xcXDEPkdd.s
+7FE cinit CODE >636:/tmp/xcXDEPkdd.s
+7B0 text2 CODE >94:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7B0 text2 CODE >96:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7B2 text2 CODE >97:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7B3 text2 CODE >98:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7B4 text2 CODE >100:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7D5 text1 CODE >62:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7D5 text1 CODE >65:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7D7 text1 CODE >66:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7D8 text1 CODE >67:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7D9 text1 CODE >70:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7DB text1 CODE >71:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7DD text1 CODE >72:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7DF text1 CODE >75:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7E1 text1 CODE >76:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7E2 text1 CODE >77:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7E3 text1 CODE >80:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7E4 text1 CODE >81:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7E6 text1 CODE >82:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7E8 text1 CODE >85:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7EA text1 CODE >86:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7EB text1 CODE >87:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7ED text1 CODE >88:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7EE text1 CODE >90:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7C3 maintext CODE >104:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7C3 maintext CODE >106:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7C6 maintext CODE >107:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7C9 maintext CODE >109:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7CB maintext CODE >111:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7CF maintext CODE >112:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7D0 maintext CODE >113:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7D1 maintext CODE >114:/home/hmurcia/github/Curiosity_NANO/src/NanoBase.X/main.c
+7B5 inittext CODE >601:/tmp/xcXDEPkdd.s
+7B5 inittext CODE >602:/tmp/xcXDEPkdd.s
+7B6 inittext CODE >603:/tmp/xcXDEPkdd.s
+7B6 inittext CODE >604:/tmp/xcXDEPkdd.s
+7B7 inittext CODE >605:/tmp/xcXDEPkdd.s
+7B8 inittext CODE >606:/tmp/xcXDEPkdd.s
+7B9 inittext CODE >607:/tmp/xcXDEPkdd.s
+7BA inittext CODE >608:/tmp/xcXDEPkdd.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -193,42 +207,51 @@ $dist/default/production/NanoBase.X.production.o
 %SYMTAB
 ___latbits 1 0 ABS 0 - dist/default/production/NanoBase.X.production.o
 __Hspace_0 800 0 ABS 0 - -
-__Hspace_1 7C 0 ABS 0 - -
+__Hspace_1 7A 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 10013 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack /tmp/xcXBeBBEF.o
-_main FAE 0 CODE 0 maintext dist/default/production/NanoBase.X.production.o
+_LATA 18 0 ABS 0 - dist/default/production/NanoBase.X.production.o
+_LATB 19 0 ABS 0 - dist/default/production/NanoBase.X.production.o
+_LATC 1A 0 ABS 0 - dist/default/production/NanoBase.X.production.o
+_WPUA 1F39 0 ABS 0 - dist/default/production/NanoBase.X.production.o
+_WPUB 1F44 0 ABS 0 - dist/default/production/NanoBase.X.production.o
+_WPUC 1F4F 0 ABS 0 - dist/default/production/NanoBase.X.production.o
+___sp 0 0 STACK 2 stack /tmp/xcXBKEcMf.o
+_main F86 0 CODE 0 maintext dist/default/production/NanoBase.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production/NanoBase.X.production.o
-start 4 0 CODE 0 init /tmp/xcXBeBBEF.o
+start 4 0 CODE 0 init /tmp/xcXBKEcMf.o
 __size_of_main 0 0 ABS 0 - dist/default/production/NanoBase.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __Hpowerup 0 0 CODE 0 powerup -
 __HdataCOMMON 0 0 ABS 0 dataCOMMON -
-intlevel0 0 0 ENTRY 0 functab /tmp/xcXBeBBEF.o
-intlevel1 0 0 ENTRY 0 functab /tmp/xcXBeBBEF.o
-intlevel2 0 0 ENTRY 0 functab /tmp/xcXBeBBEF.o
-intlevel3 0 0 ENTRY 0 functab /tmp/xcXBeBBEF.o
-intlevel4 0 0 ENTRY 0 functab /tmp/xcXBeBBEF.o
-intlevel5 0 0 ENTRY 0 functab /tmp/xcXBeBBEF.o
+intlevel0 0 0 ENTRY 0 functab /tmp/xcXBKEcMf.o
+intlevel1 0 0 ENTRY 0 functab /tmp/xcXBKEcMf.o
+intlevel2 0 0 ENTRY 0 functab /tmp/xcXBKEcMf.o
+intlevel3 0 0 ENTRY 0 functab /tmp/xcXBKEcMf.o
+intlevel4 0 0 ENTRY 0 functab /tmp/xcXBKEcMf.o
+intlevel5 0 0 ENTRY 0 functab /tmp/xcXBKEcMf.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production/NanoBase.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
-__pidataCOMMON F9E 0 CODE 0 idataCOMMON dist/default/production/NanoBase.X.production.o
+__pidataCOMMON F76 0 CODE 0 idataCOMMON dist/default/production/NanoBase.X.production.o
+_ANSELA 1F38 0 ABS 0 - dist/default/production/NanoBase.X.production.o
+_ANSELB 1F43 0 ABS 0 - dist/default/production/NanoBase.X.production.o
+_ANSELC 1F4E 0 ABS 0 - dist/default/production/NanoBase.X.production.o
 __LdataCOMMON 0 0 ABS 0 dataCOMMON -
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 21EF 0 ABS 0 - /tmp/xcXBeBBEF.o
-___stacklo 2000 0 ABS 0 - /tmp/xcXBeBBEF.o
+___stackhi 21EF 0 ABS 0 - /tmp/xcXBKEcMf.o
+___stacklo 2000 0 ABS 0 - /tmp/xcXBKEcMf.o
 __LidataCOMMON 0 0 ABS 0 idataCOMMON -
-_PIN_MANAGER_Initialize F86 0 CODE 0 text1 dist/default/production/NanoBase.X.production.o
+_PIN_MANAGER_Initialize FAA 0 CODE 0 text1 dist/default/production/NanoBase.X.production.o
 start_initialization FDE 0 CODE 0 cinit dist/default/production/NanoBase.X.production.o
 _OSCFRQ 893 0 ABS 0 - dist/default/production/NanoBase.X.production.o
 _TRISA2 92 0 ABS 0 - dist/default/production/NanoBase.X.production.o
 _TRISC2 A2 0 ABS 0 - dist/default/production/NanoBase.X.production.o
-___int_sp 0 0 STACK 2 stack /tmp/xcXBeBBEF.o
+___int_sp 0 0 STACK 2 stack /tmp/xcXBKEcMf.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -420,8 +443,9 @@ __Lsfr61 0 0 ABS 0 sfr61 -
 __Lsfr62 0 0 ABS 0 sfr62 -
 __Lsfr63 0 0 ABS 0 sfr63 -
 __Lstack 0 0 STACK 2 stack -
-init_ram F92 0 CODE 0 inittext dist/default/production/NanoBase.X.production.o
+init_ram F6A 0 CODE 0 inittext dist/default/production/NanoBase.X.production.o
 __Linittext 0 0 ABS 0 inittext -
+_PORTCbits E 0 ABS 0 - dist/default/production/NanoBase.X.production.o
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
 __Hinit 4 0 CODE 0 init -
@@ -452,12 +476,12 @@ __Lsfr9 0 0 ABS 0 sfr9 -
 __Ltext 0 0 ABS 0 text -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __S0 800 0 ABS 0 - -
-__S1 7C 0 ABS 0 - -
+__S1 7A 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __HidataCOMMON 0 0 ABS 0 idataCOMMON -
 __Lintentry 4 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec /tmp/xcXBeBBEF.o
-__end_of_PIN_MANAGER_Initialize F92 0 CODE 0 text1 dist/default/production/NanoBase.X.production.o
+reset_vec 0 0 CODE 0 reset_vec /tmp/xcXBKEcMf.o
+__end_of_PIN_MANAGER_Initialize FDE 0 CODE 0 text1 dist/default/production/NanoBase.X.production.o
 __Lbank10 0 0 BANK10 1 bank10 -
 __Lbank11 0 0 BANK11 1 bank11 -
 __Lbank12 0 0 BANK12 1 bank12 -
@@ -512,7 +536,7 @@ __Lbank60 0 0 BANK60 1 bank60 -
 __Lbank61 0 0 BANK61 1 bank61 -
 __Lbank62 0 0 BANK62 1 bank62 -
 __Lbank63 0 0 BANK63 1 bank63 -
-__pmaintext FAE 0 CODE 0 maintext dist/default/production/NanoBase.X.production.o
+__pmaintext F86 0 CODE 0 maintext dist/default/production/NanoBase.X.production.o
 __Lbigram 0 0 ABS 0 bigram -
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
@@ -531,26 +555,30 @@ end_of_initialization FFA 0 CODE 0 cinit dist/default/production/NanoBase.X.prod
 __Hintentry 4 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 4 0 CODE 0 reset_vec -
-__ptext1 F86 0 CODE 0 text1 dist/default/production/NanoBase.X.production.o
-__ptext2 F7C 0 CODE 0 text2 dist/default/production/NanoBase.X.production.o
+__ptext1 FAA 0 CODE 0 text1 dist/default/production/NanoBase.X.production.o
+__ptext2 F60 0 CODE 0 text2 dist/default/production/NanoBase.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
 __end_of__initialization FFA 0 CODE 0 cinit dist/default/production/NanoBase.X.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
 __Lclrtext 0 0 ABS 0 clrtext -
-__pcstackCOMMON 7A 0 COMMON 1 cstackCOMMON dist/default/production/NanoBase.X.production.o
+__pcstackCOMMON 0 0 COMMON 1 cstackCOMMON dist/default/production/NanoBase.X.production.o
 __Hend_init 8 0 CODE 0 end_init -
-__end_of_main FDE 0 CODE 0 maintext dist/default/production/NanoBase.X.production.o
+__end_of_main FAA 0 CODE 0 maintext dist/default/production/NanoBase.X.production.o
 _OSCEN 891 0 ABS 0 - dist/default/production/NanoBase.X.production.o
+_TRISA 12 0 ABS 0 - dist/default/production/NanoBase.X.production.o
+_TRISB 13 0 ABS 0 - dist/default/production/NanoBase.X.production.o
+_TRISC 14 0 ABS 0 - dist/default/production/NanoBase.X.production.o
 _WPUC2 FA7A 0 ABS 0 - dist/default/production/NanoBase.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 __size_of_PIN_MANAGER_Initialize 0 0 ABS 0 - dist/default/production/NanoBase.X.production.o
-__end_of_OSCILLATOR_Initialize F86 0 CODE 0 text2 dist/default/production/NanoBase.X.production.o
+__end_of_OSCILLATOR_Initialize F6A 0 CODE 0 text2 dist/default/production/NanoBase.X.production.o
 __initialization FDE 0 CODE 0 cinit dist/default/production/NanoBase.X.production.o
 __pdataCOMMON 70 0 COMMON 1 dataCOMMON dist/default/production/NanoBase.X.production.o
-_OSCILLATOR_Initialize F7C 0 CODE 0 text2 dist/default/production/NanoBase.X.production.o
+_ANSELAbits 1F38 0 ABS 0 - dist/default/production/NanoBase.X.production.o
+_OSCILLATOR_Initialize F60 0 CODE 0 text2 dist/default/production/NanoBase.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -577,13 +605,13 @@ _OSCILLATOR_Initialize F7C 0 CODE 0 text2 dist/default/production/NanoBase.X.pro
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cinit 0 7EF FDE 11 2
-text1 0 7C3 F86 6 2
-text2 0 7BE F7C 5 2
-idataCOMMON 0 7CF F9E 8 2
-maintext 0 7D7 FAE 18 2
-inittext 0 7C9 F92 6 2
+text1 0 7D5 FAA 1A 2
+text2 0 7B0 F60 5 2
+idataCOMMON 0 7BB F76 8 2
+maintext 0 7C3 F86 12 2
+inittext 0 7B5 F6A 6 2
 reset_vec 0 0 0 4 2
-dataCOMMON 1 70 70 C 1
+dataCOMMON 1 70 70 A 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

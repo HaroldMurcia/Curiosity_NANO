@@ -61,10 +61,32 @@ uint16_t dutyCycle100 = 0x03E7;
 ///////////// DECLARACI�N DE FUNCIONES Y PROCEDIMIENTOS ///////////////////
 void PIN_MANAGER_Initialize(void)
 {
+    // LATx registers
+    LATA = 0x00;
+    LATB = 0x00;
+    LATC = 0x00;
+
     // TRISx registers
-    TRISA2 = 0;          // Definiendo puerto A2 como salida digital  [LED]
-    TRISC2 = 1;          // Definiendo puerto C2 como entrada digital [Pulsador]
-    WPUC2  = 1;          // Activando resistencia d pull-up                                                           // RA2->PWM3:PWM3OUT;
+    TRISA = 0x3B;
+    TRISB = 0xF0;
+    TRISC = 0xFF;
+
+    // ANSELx registers
+    ANSELC = 0x00;
+    ANSELB = 0x00;
+    ANSELA = 0x00;
+
+    // WPUx registers
+    WPUB = 0x00;
+    WPUA = 0x04;
+    WPUC = 0x04;
+
+    // TRISx registers
+    TRISA2 = 0;          // Definiendo puerto A2 como salida digital
+    TRISC2 = 1;          // Definiendo puerto C2 como entada digital
+    WPUC2  = 1;          // Activando resistencia d pull-up
+    ANSELAbits.ANSA1 = 1;// Definiendo entrada como analoga                                                         // RA2->PWM3:PWM3OUT;
+
 }
 
 
@@ -74,6 +96,7 @@ void OSCILLATOR_Initialize(void)
     OSCEN = 0x00;                                                               // MFOEN disabled; LFOEN disabled; ADOEN disabled; HFOEN disabled;
     OSCFRQ = 0x00;                                                              // HFFRQ0 1_MHz
     OSCTUNE = 0x00;
+
 }
 
 /////////////  INICIO DEL PROGRAMA PRINCIPAL //////////////////////////
@@ -82,9 +105,13 @@ void main(void)
 {
     PIN_MANAGER_Initialize();
     OSCILLATOR_Initialize();
+    // Led off
+    LATAbits.LATA2 = 1;
     while(1){
-      LATAbits.LATA2 = 1;
-      __delay_ms(1000);
-      LATAbits.LATA2 = 0;
+        if (PORTCbits.RC2==1){
+            LATAbits.LATA2 = 0;
+        }else{
+           LATAbits.LATA2 = 1;
+        }
     }
 }

@@ -1,5 +1,41 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"11695 /opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/proc/pic16f15244.h
+"748 /opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/proc/pic16f15244.h
+[; ;/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/proc/pic16f15244.h: 748: extern volatile unsigned char LATA __attribute__((address(0x018)));
+[v _LATA `Vuc ~T0 @X0 0 e@24 ]
+"798
+[; ;/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/proc/pic16f15244.h: 798: extern volatile unsigned char LATB __attribute__((address(0x019)));
+[v _LATB `Vuc ~T0 @X0 0 e@25 ]
+"837
+[; ;/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/proc/pic16f15244.h: 837: extern volatile unsigned char LATC __attribute__((address(0x01A)));
+[v _LATC `Vuc ~T0 @X0 0 e@26 ]
+"597
+[; ;/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/proc/pic16f15244.h: 597: extern volatile unsigned char TRISA __attribute__((address(0x012)));
+[v _TRISA `Vuc ~T0 @X0 0 e@18 ]
+"647
+[; ;/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/proc/pic16f15244.h: 647: extern volatile unsigned char TRISB __attribute__((address(0x013)));
+[v _TRISB `Vuc ~T0 @X0 0 e@19 ]
+"686
+[; ;/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/proc/pic16f15244.h: 686: extern volatile unsigned char TRISC __attribute__((address(0x014)));
+[v _TRISC `Vuc ~T0 @X0 0 e@20 ]
+"8784
+[; ;/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/proc/pic16f15244.h: 8784: extern volatile unsigned char ANSELC __attribute__((address(0x1F4E)));
+[v _ANSELC `Vuc ~T0 @X0 0 e@8014 ]
+"8472
+[; ;/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/proc/pic16f15244.h: 8472: extern volatile unsigned char ANSELB __attribute__((address(0x1F43)));
+[v _ANSELB `Vuc ~T0 @X0 0 e@8003 ]
+"8087
+[; ;/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/proc/pic16f15244.h: 8087: extern volatile unsigned char ANSELA __attribute__((address(0x1F38)));
+[v _ANSELA `Vuc ~T0 @X0 0 e@7992 ]
+"8511
+[; ;/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/proc/pic16f15244.h: 8511: extern volatile unsigned char WPUB __attribute__((address(0x1F44)));
+[v _WPUB `Vuc ~T0 @X0 0 e@8004 ]
+"8132
+[; ;/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/proc/pic16f15244.h: 8132: extern volatile unsigned char WPUA __attribute__((address(0x1F39)));
+[v _WPUA `Vuc ~T0 @X0 0 e@7993 ]
+"8846
+[; ;/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/proc/pic16f15244.h: 8846: extern volatile unsigned char WPUC __attribute__((address(0x1F4F)));
+[v _WPUC `Vuc ~T0 @X0 0 e@8015 ]
+"11695
 [; ;/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/proc/pic16f15244.h: 11695: extern volatile __bit TRISA2 __attribute__((address(0x92)));
 [v _TRISA2 `Vb ~T0 @X0 0 e@146 ]
 "11725
@@ -8,6 +44,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "11830
 [; ;/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/proc/pic16f15244.h: 11830: extern volatile __bit WPUC2 __attribute__((address(0xFA7A)));
 [v _WPUC2 `Vb ~T0 @X0 0 e@64122 ]
+"8093
+[; ;/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/proc/pic16f15244.h: 8093:     struct {
+[s S436 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S436 . ANSA0 ANSA1 ANSA2 . ANSA4 ANSA5 ]
+"8092
+[; ;/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/proc/pic16f15244.h: 8092: typedef union {
+[u S435 `S436 1 ]
+[n S435 . . ]
+"8102
+[; ;/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/proc/pic16f15244.h: 8102: extern volatile ANSELAbits_t ANSELAbits __attribute__((address(0x1F38)));
+[v _ANSELAbits `VS435 ~T0 @X0 0 e@7992 ]
 "5786
 [; ;/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/proc/pic16f15244.h: 5786: extern volatile unsigned char OSCEN __attribute__((address(0x891)));
 [v _OSCEN `Vuc ~T0 @X0 0 e@2193 ]
@@ -29,10 +76,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "763
 [; ;/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/proc/pic16f15244.h: 763: extern volatile LATAbits_t LATAbits __attribute__((address(0x018)));
 [v _LATAbits `VS44 ~T0 @X0 0 e@24 ]
-[v F3483 `(v ~T0 @X0 1 tf1`ul ]
-"92 /opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/pic.h
-[v __delay `JF3483 ~T0 @X0 0 e ]
-[p i __delay ]
+"541
+[; ;/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/proc/pic16f15244.h: 541:     struct {
+[s S37 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S37 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"540
+[; ;/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/proc/pic16f15244.h: 540: typedef union {
+[u S36 `S37 1 ]
+[n S36 . . ]
+"552
+[; ;/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/proc/pic16f15244.h: 552: extern volatile PORTCbits_t PORTCbits __attribute__((address(0x00E)));
+[v _PORTCbits `VS36 ~T0 @X0 0 e@14 ]
 "110 /opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/proc/pic16f15244.h
 [; ;/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/proc/pic16f15244.h: 110: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -658,74 +712,127 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _PIN_MANAGER_Initialize ]
 [f ]
 "65
-[; ;main.c: 65:     TRISA2 = 0;
-[e = _TRISA2 -> -> 0 `i `b ]
+[; ;main.c: 65:     LATA = 0x00;
+[e = _LATA -> -> 0 `i `uc ]
 "66
-[; ;main.c: 66:     TRISC2 = 1;
-[e = _TRISC2 -> -> 1 `i `b ]
+[; ;main.c: 66:     LATB = 0x00;
+[e = _LATB -> -> 0 `i `uc ]
 "67
-[; ;main.c: 67:     WPUC2 = 1;
+[; ;main.c: 67:     LATC = 0x00;
+[e = _LATC -> -> 0 `i `uc ]
+"70
+[; ;main.c: 70:     TRISA = 0x3B;
+[e = _TRISA -> -> 59 `i `uc ]
+"71
+[; ;main.c: 71:     TRISB = 0xF0;
+[e = _TRISB -> -> 240 `i `uc ]
+"72
+[; ;main.c: 72:     TRISC = 0xFF;
+[e = _TRISC -> -> 255 `i `uc ]
+"75
+[; ;main.c: 75:     ANSELC = 0x00;
+[e = _ANSELC -> -> 0 `i `uc ]
+"76
+[; ;main.c: 76:     ANSELB = 0x00;
+[e = _ANSELB -> -> 0 `i `uc ]
+"77
+[; ;main.c: 77:     ANSELA = 0x00;
+[e = _ANSELA -> -> 0 `i `uc ]
+"80
+[; ;main.c: 80:     WPUB = 0x00;
+[e = _WPUB -> -> 0 `i `uc ]
+"81
+[; ;main.c: 81:     WPUA = 0x04;
+[e = _WPUA -> -> 4 `i `uc ]
+"82
+[; ;main.c: 82:     WPUC = 0x04;
+[e = _WPUC -> -> 4 `i `uc ]
+"85
+[; ;main.c: 85:     TRISA2 = 0;
+[e = _TRISA2 -> -> 0 `i `b ]
+"86
+[; ;main.c: 86:     TRISC2 = 1;
+[e = _TRISC2 -> -> 1 `i `b ]
+"87
+[; ;main.c: 87:     WPUC2 = 1;
 [e = _WPUC2 -> -> 1 `i `b ]
-"68
-[; ;main.c: 68: }
+"88
+[; ;main.c: 88:     ANSELAbits.ANSA1 = 1;
+[e = . . _ANSELAbits 0 1 -> -> 1 `i `uc ]
+"90
+[; ;main.c: 90: }
 [e :UE 507 ]
 }
-"72
-[; ;main.c: 72: void OSCILLATOR_Initialize(void)
+"94
+[; ;main.c: 94: void OSCILLATOR_Initialize(void)
 [v _OSCILLATOR_Initialize `(v ~T0 @X0 1 ef ]
-"73
-[; ;main.c: 73: {
+"95
+[; ;main.c: 95: {
 {
 [e :U _OSCILLATOR_Initialize ]
 [f ]
-"74
-[; ;main.c: 74:     OSCEN = 0x00;
+"96
+[; ;main.c: 96:     OSCEN = 0x00;
 [e = _OSCEN -> -> 0 `i `uc ]
-"75
-[; ;main.c: 75:     OSCFRQ = 0x00;
+"97
+[; ;main.c: 97:     OSCFRQ = 0x00;
 [e = _OSCFRQ -> -> 0 `i `uc ]
-"76
-[; ;main.c: 76:     OSCTUNE = 0x00;
+"98
+[; ;main.c: 98:     OSCTUNE = 0x00;
 [e = _OSCTUNE -> -> 0 `i `uc ]
-"77
-[; ;main.c: 77: }
+"100
+[; ;main.c: 100: }
 [e :UE 508 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"81
-[; ;main.c: 81: void main(void)
+"104
+[; ;main.c: 104: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"82
-[; ;main.c: 82: {
+"105
+[; ;main.c: 105: {
 {
 [e :U _main ]
 [f ]
-"83
-[; ;main.c: 83:     PIN_MANAGER_Initialize();
+"106
+[; ;main.c: 106:     PIN_MANAGER_Initialize();
 [e ( _PIN_MANAGER_Initialize ..  ]
-"84
-[; ;main.c: 84:     OSCILLATOR_Initialize();
+"107
+[; ;main.c: 107:     OSCILLATOR_Initialize();
 [e ( _OSCILLATOR_Initialize ..  ]
-"85
-[; ;main.c: 85:     while(1){
+"109
+[; ;main.c: 109:     LATAbits.LATA2 = 1;
+[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+"110
+[; ;main.c: 110:     while(1){
 [e :U 511 ]
 {
-"86
-[; ;main.c: 86:       LATAbits.LATA2 = 1;
-[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
-"87
-[; ;main.c: 87:       _delay((unsigned long)((1000)*(1000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 1000000 `l `d .4000.0 `ul ]
-"88
-[; ;main.c: 88:       LATAbits.LATA2 = 0;
+"111
+[; ;main.c: 111:         if (PORTCbits.RC2==1){
+[e $ ! == -> . . _PORTCbits 0 2 `i -> 1 `i 513  ]
+{
+"112
+[; ;main.c: 112:             LATAbits.LATA2 = 0;
 [e = . . _LATAbits 0 2 -> -> 0 `i `uc ]
-"89
-[; ;main.c: 89:     }
+"113
+[; ;main.c: 113:         }else{
+}
+[e $U 514  ]
+[e :U 513 ]
+{
+"114
+[; ;main.c: 114:            LATAbits.LATA2 = 1;
+[e = . . _LATAbits 0 2 -> -> 1 `i `uc ]
+"115
+[; ;main.c: 115:         }
+}
+[e :U 514 ]
+"116
+[; ;main.c: 116:     }
 }
 [e :U 510 ]
 [e $U 511  ]
 [e :U 512 ]
-"90
-[; ;main.c: 90: }
+"117
+[; ;main.c: 117: }
 [e :UE 509 ]
 }
