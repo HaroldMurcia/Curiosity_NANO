@@ -7,7 +7,7 @@
 # 1 "/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 12 "main.c"
+# 10 "main.c"
 # 1 "/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/xc.h" 1 3
 # 18 "/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -5930,7 +5930,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "/opt/microchip/mplabx/v5.40/packs/Microchip/PIC16F1xxxx_DFP/1.4.119/xc8/pic/include/xc.h" 2 3
-# 13 "main.c" 2
+# 11 "main.c" 2
 # 1 "/opt/microchip/xc8/v2.31/pic/include/c99/stdint.h" 1 3
 # 22 "/opt/microchip/xc8/v2.31/pic/include/c99/stdint.h" 3
 # 1 "/opt/microchip/xc8/v2.31/pic/include/c99/bits/alltypes.h" 1 3
@@ -6015,9 +6015,9 @@ typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 145 "/opt/microchip/xc8/v2.31/pic/include/c99/stdint.h" 2 3
-# 14 "main.c" 2
+# 12 "main.c" 2
 # 1 "/opt/microchip/xc8/v2.31/pic/include/c99/stdbool.h" 1 3
-# 15 "main.c" 2
+# 13 "main.c" 2
 # 1 "/opt/microchip/xc8/v2.31/pic/include/c99/conio.h" 1 3
 
 
@@ -6047,7 +6047,7 @@ extern __bit kbhit(void);
 
 extern char * cgets(char *);
 extern void cputs(const char *);
-# 16 "main.c" 2
+# 14 "main.c" 2
 
 
 #pragma config FEXTOSC = OFF
@@ -6076,8 +6076,7 @@ extern void cputs(const char *);
 
 
 #pragma config CP = OFF
-# 55 "main.c"
-int par_impar=0;
+# 53 "main.c"
 uint16_t dutyCycle10 = 10;
 uint16_t dutyCycle50 = 0x01F4;
 uint16_t dutyCycle75 = 0x02EE;
@@ -6097,9 +6096,9 @@ void PIN_MANAGER_Initialize(void)
     TRISC = 0xFF;
 
 
-    ANSELC = 0x00;
-    ANSELB = 0x00;
-    ANSELA = 0x00;
+    ANSELC = 0xFB;
+    ANSELB = 0xF0;
+    ANSELA = 0x33;
 
 
     WPUB = 0x00;
@@ -6107,11 +6106,27 @@ void PIN_MANAGER_Initialize(void)
     WPUC = 0x04;
 
 
+    ODCONA = 0x00;
+    ODCONB = 0x00;
+    ODCONC = 0x00;
+
+
+    SLRCONA = 0x37;
+    SLRCONB = 0xF0;
+    SLRCONC = 0xFF;
+
+
+    INLVLA = 0x3F;
+    INLVLB = 0xF0;
+    INLVLC = 0xFF;
+
+
     TRISA2 = 0;
     TRISC2 = 1;
     WPUC2 = 1;
     ANSELAbits.ANSA1 = 1;
 
+    RA2PPS = 0x03;
 }
 
 
@@ -6121,8 +6136,33 @@ void OSCILLATOR_Initialize(void)
     OSCEN = 0x00;
     OSCFRQ = 0x00;
     OSCTUNE = 0x00;
-
 }
+
+void TMR2_Initialize(void)
+{
+    T2CLKCON = 0x01;
+    T2HLT = 0x00;
+    T2RST = 0x00;
+    T2PR = 249;
+    T2TMR = 0x00;
+    PIR1bits.TMR2IF = 0;
+    T2CON = 0b10000000;
+}
+
+ void PWM3_Initialize(void)
+ {
+    PWM3CON = 0x90;
+    PWM3DCH = 0x3E;
+    PWM3DCL = 0x40;
+ }
+
+
+
+ void PWM3_LoadDutyValue(uint16_t dutyValue)
+    {
+        PWM3DCH = (dutyValue & 0x03FC)>>2;
+        PWM3DCL = (dutyValue & 0x0003)<<6;
+    }
 
 
 
@@ -6130,13 +6170,10 @@ void main(void)
 {
     PIN_MANAGER_Initialize();
     OSCILLATOR_Initialize();
-
-    LATAbits.LATA2 = 1;
+    TMR2_Initialize();
+    PWM3_Initialize();
     while(1){
-        if (PORTCbits.RC2==1){
-            LATAbits.LATA2 = 0;
-        }else{
-           LATAbits.LATA2 = 1;
-        }
+      PWM3_LoadDutyValue(dutyCycle10);
+      _delay((unsigned long)((10)*(1000000/4000.0)));
     }
 }
